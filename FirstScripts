@@ -1,0 +1,103 @@
+#First scripts and drafts
+
+#Login compute canada
+>ssh akelling@cedar.computecanada.ca
+
+
+SCRIPTS
+all start with: 
+#!/bin/bash
+
+#Loop practice
+#in the carpentry.files dir
+# make a loop that takes all fastq files ending in "_1" 
+# and state the name, first 3 lines, and how many lines are in the file
+# by adding ">>" after the "done" it appends the output to whatever txt file you specify 
+for VAR in *_1.fastq
+do
+  	    echo $VAR
+        head -3 $VAR
+        wc -l $VAR
+done >> fastq_stats.txt
+
+#Dad’s version of the above script
+echo “New Run” > run.log
+echo `pwd` >> run.log
+for VAR in *_1.fastq
+do
+  	    echo $VAR  >> run.log
+        head -3 $VAR >> run.log
+        wc -l $VAR >> run.log
+done
+
+
+#check md5
+BEFORE
+#this is a unique code for each of your fastq.gz files to compare to their md5 and ensure that they match and have not been edited or lost
+#first copy all of the .md5 to this txt file
+md5sum * | tee md5sum.txt
+#then check the md5 and compare it to what’s in the .txt you made
+md5sum -c md5sum.txt
+#output will be an “ok” or error
+#OR instead of last line you can use “md5sum --check md5sum.txt”
+AFTER
+#this is a unique code for each of your fastq.gz files (like a barcode) 
+# We can compare fastq.gz to their md5 file (what’s INSIDE; NOT the md5’s md5) and ensure that they match and have not been edited or lost
+#first copied all md5 numbers into this txt file
+md5sum * | tee md5sum.txt
+#made a txt file with only the provided md5 numbers (within the .md5 files) 
+[akelling@cedar1 210602_A00481_0206_AHFM2CDRXY]$ cat *.md5 providedmd5.txt
+[akelling@cedar1 210602_A00481_0206_AHFM2CDRXY]$ cat *.md5 > providedmd5.txt
+#next replaced the “md5sum.txt” file with only the md5 numbers from the .gz files (the actual data)
+[akelling@cedar1 210602_A00481_0206_AHFM2CDRXY]$ md5sum *.gz | tee md5sum.txt
+#now can compare what’s in the two folders: 
+[akelling@cedar1 210602_A00481_0206_AHFM2CDRXY]$ diff -a md5sum.txt providedmd5.txt
+#output here shows one difference “8a9” and states the different file (the one I unzipped that one time)
+#and/or/better we can use what’s in the provided md5 number folder and compare it to everything in the original data folder (now called work)
+[akelling@cedar1 210602_A00481_0206_AHFM2CDRXY]$ md5sum -c providedmd5.txt 
+#output will be an OK or failed based on the numbers in the folder 
+
+#TCAG downloading script
+#We could download the TCAG software to your computecanada computer and use the CLI to download the files straight to there
+#Let’s go back and see what Dad did: 
+#FIRST in the TCAG website, download the CLI tool for linux - it’ll appear in your chromes downloads 
+# then copy the link address 
+[akelling@cedar1 scratch]$ wget https://data-portal.tcag.ca/cli/linux/latest
+# “ls -l”: it should be in your scratch (where you were)
+#moved to bin
+[akelling@cedar1 ~]$ mv scratch/latest bin
+#moved / renamed to tcag-client-1.4.2
+[akelling@cedar1 bin]$ mv latest tcag-client-1.4.2
+#give permission
+[akelling@cedar1 bin]$ chmod +x tcag-client-1.4.2
+#moved to akelling and made dir
+[akelling@cedar1 def-juniacke]$ cd akelling/
+[akelling@cedar1 akelling]$ mkdir project_202107
+[akelling@cedar1 project_202107]$ mkdir 10_rawdata
+[akelling@cedar1 project_202107]$ cd 10_rawdata/
+#now can use the command in the TCAG website once folders are checked and download data 
+[akelling@cedar1 10_rawdata]$ tcag-client-1.4.2 download -p 2I7I3XE:/ 
+#asked for username and pw (guelph email and TCAGDATA019pw)
+
+
+
+
+#need  StdEnv/2020
+#      nixpkgs/16.09
+#to download fastqc/0.11.9
+#did this 18Jun21
+#when using fastqc, you do not need the file version to call on that program
+> fastqc
+
+#fastqc script WORKING
+#Let's make a script for:
+    #unzip your fastq.gz 
+	#WAIT I don't think I have to. Let's not and see
+    #run your fastqc through fastqc
+    #save output in dir in akelling "fastqc.data"
+#NEED to put the time/mem variables (use example on wiki)
+#loop?
+for VAR in projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/*.fastq.gz
+do
+        fastqc $VAR -o <target folder>
+done

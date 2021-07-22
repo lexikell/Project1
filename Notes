@@ -1,0 +1,91 @@
+#Linux FASTQ processing commands and other notes
+
+#Login compute canada
+>ssh akelling@cedar.computecanada.ca
+
+===================DAD ORGANIZE===========
+~/<xxx>/
+Project_202107
+	/00_scripts
+	/10_raw_data
+	/20_work_files
+	/30_clean_data
+	/50_final
+
+
+BIN
+- dad linked the bin folder to your original map (idk what it was called)
+	so now when something is run, it will look in bin - no matter where you are 
+	this is where you can keep your scripts (.sh or .py) and they will always be searched in order to be called upon
+- this is also where dad put “work” which is where your original data folders are - so it’s like a shortcut for the full OG data folder
+	- can use “source work” can it will place you where “work” lead -> the OG data folder 
+-if you run “~/bin/work” just by itself it will run “ls -l” on that OG data file and show you what’s in there (in work) 
+
+
+
+*******************
+NOTES: BASIC COMMANDS
+
+-DO NOT
+	mv
+	this corrupts your file(?)
+-need to write a bash script (script) to submit your job 
+-command “partition-stats” 
+-sq command for checking running jobs status 
+- sacct checks all jobs (previous jobs)
+-can load the prerequisites package along with the package you actually want, just make sure the prerequisites are before your final wanted package in the list of “module load” command EX) module load java fastqc (I think)
+-choosing runtime and memory etc: 
+	use interactive nodes (note file)
+- “ls -a” is a way to see hidden files in your dir 
+	- hidden bc they’re background files that you dont nec need to see all the time
+- the space bar and B button lets you scroll pages through a lot of output lines
+-“ls -R” shows files in the dir or home and what are in those files (1 level)
+-control+C lets you cancel whatever command you just said
+- “head -n” is the first n lines of whatever file (or tail for the end)
+	defaults to 10 lines if you don’t specify n
+- “./“ is wherever dir you are in currently (so you don’t have to write out the whole path
+-“which+xxx” tells you where xxx is located 
+- “ls -l” tells us what’s in the dir AND what it is (file or dir)
+-“pwd” tells us where you are 
+-“tree” shows what is in what dirs
+-"module list" checks what is loaded
+    NOTE: you have to re-install each time (most likely)
+
+
+*******************************
+MIRANDA
+So the main functions I use are: 
+cd which takes you to your folders 
+sbatch which starts your runs 
+squeue -u which tells you your position in the queue
+scp which allows you to download files from the server to your computer 
+ssh which allows you to log in to compute Canada 
+rm removes files you don’t need anymore 
+emacs filename which can be used to create your bash shell 
+ls tells you what inside each folder you are in 
+cat allows you to open the file to look at it 
+
+ So to upload a file you just need to open a terminal window without logging into cedar but navigate to the folder where all your data is then type 
+scp filename yourcomputecanadausername:/yourcomputecanadapathway
+
+scp 2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY akelling:/akelling@cedar.computecanada.ca
+
+
+------------------------
+First notes:
+
+#visualize that first file in your downloads 
+>cd downloads
+> zless 2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/PAbJUL1_S1_L001_R1_001.fastq.gz
+
+# how many seq are in your file? :: divide by four to count just seq lines
+> cat 2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/PAbJUL1_S1_L001_R1_001.fastq.gz | echo $((`wc -l`/4))
+
+#How many lines are in your file? 
+> cat 2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/PAbJUL1_S1_L001_R1_001.fastq.gz | echo wc -l
+
+# see what’s in Data folder on Compute Canada
+>ls projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY
+
+#first file = test file with PAb1 R1
+>projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/PAbJUL1_S1_L001_R1_001.fastq.gz
