@@ -1,5 +1,5 @@
 #Let's make a script
-#AIM: take all of your gz (don't need to unzip) and run them through FASTQC and put the output in a folder
+#AIM: take all of your gz (don't need to unzip) and run them through FASTQC and put the output in a folder within that original spot
 
 #need  StdEnv/2020
 #      nixpkgs/16.09
@@ -8,11 +8,7 @@
 #edit: need to do this each time for everything that isn't "sticky"! (StdEnv is sticky)
 #add module load to start of script
 #when using fastqc, you do not need the file version to call on that program (can be just "fastqc")
-
-#WORKING DRAFT
-#NEED to put the time/mem variables (use example on wiki)
-#loop?
-
+# #############################
 #fastqc.sh
 
 #!/bin/bash
@@ -27,3 +23,12 @@ for VAR in ~/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/2106
 do
     fastqc $VAR -o ./TEST_fastqc
 done
+
+# ##############################
+#then need to scp the files onto your local cmpt to open the HTML through a browser 
+#I first made another folder within TEST_fastqc named TEST_fastqc_html with only the .html files so that I didn't copy unnec stuff
+#made dir then "mv *.html TEST_fastqc_html
+
+scp -r akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/TEST_fastqc/TEST_fastqc_html /Users/lexikellington/fastqc_html
+
+#then "open file.html" and it will open in chrome (bc it's your default browser)
