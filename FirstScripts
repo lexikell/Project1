@@ -31,7 +31,6 @@ do
         wc -l $VAR >> run.log
 done
 
-
 #check md5
 BEFORE
 #this is a unique code for each of your fastq.gz files to compare to their md5 and ensure that they match and have not been edited or lost
