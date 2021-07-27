@@ -48,6 +48,8 @@ NOTES: BASIC COMMANDS
 -“tree” shows what is in what dirs
 -"module list" checks what is loaded
     NOTE: you have to re-install each time (most likely)
+-no hup is a way to run your command in the background and not worry about logging out
+	"nohup sh yourscript.sh" when wanting to run
 
 
 *******************************
@@ -86,4 +88,4 @@ First notes:
 >ls projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY
 
 #first file = test file with PAb1 R1
->projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/PAbJUL1_S1_L001_R1_001.fastq.gz
+>projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/PAbJUL1_S1_L001_R2_001.fastq.gz
