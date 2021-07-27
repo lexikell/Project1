@@ -1,3 +1,29 @@
 #Let's make a script
-#take all of your gz and run them through FASTQC and put the output in a folder
+#AIM: take all of your gz (don't need to unzip) and run them through FASTQC and put the output in a folder
 
+#need  StdEnv/2020
+#      nixpkgs/16.09
+#      fastqc/0.11.9
+#did this 18Jun21.
+#edit: need to do this each time for everything that isn't "sticky"! (StdEnv is sticky)
+#add module load to start of script
+#when using fastqc, you do not need the file version to call on that program (can be just "fastqc")
+
+#WORKING DRAFT
+#NEED to put the time/mem variables (use example on wiki)
+#loop?
+
+#fastqc.sh
+
+#!/bin/bash
+#SBATCH --account=def-akelling
+#SBATCH --time=00:01:00
+#SBATCH --job-name=test.qc
+#SBATCH --output=%x-%j.out
+
+module load nixpkgs/16.09
+module load fastqc/0.11.9
+for VAR in ~/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/*.fastq.gz
+do
+    fastqc $VAR -o ./TEST_fastqc
+done
