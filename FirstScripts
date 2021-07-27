@@ -6,7 +6,8 @@
 
 SCRIPTS
 all start with: 
-#!/bin/bash
+    #!/bin/bash
+and once made in nano, run "chmod +x demo.sh" for whatever script to give yourself permission to use it 
 
 #Loop practice
 #in the carpentry.files dir
@@ -78,26 +79,3 @@ md5sum * | tee md5sum.txt
 #now can use the command in the TCAG website once folders are checked and download data 
 [akelling@cedar1 10_rawdata]$ tcag-client-1.4.2 download -p 2I7I3XE:/ 
 #asked for username and pw (guelph email and TCAGDATA019pw)
-
-
-
-
-#need  StdEnv/2020
-#      nixpkgs/16.09
-#to download fastqc/0.11.9
-#did this 18Jun21
-#when using fastqc, you do not need the file version to call on that program
-> fastqc
-
-#fastqc script WORKING
-#Let's make a script for:
-    #unzip your fastq.gz 
-	#WAIT I don't think I have to. Let's not and see
-    #run your fastqc through fastqc
-    #save output in dir in akelling "fastqc.data"
-#NEED to put the time/mem variables (use example on wiki)
-#loop?
-for VAR in projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/*.fastq.gz
-do
-        fastqc $VAR -o <target folder>
-done
