@@ -1,0 +1,25 @@
+#Let's run our .fastq files through a genome aligner 
+#this will convert the .fastq to either a BAM or SAM file 
+    #BAM you can read, SAM is binary format (faster)
+#Compute Canada already has ref genomes
+
+#!/bin/bash
+#SBATCH --account=def-akelling
+#SBATCH --time=02:00:00
+#SBATCH --job-name=test.qc
+#SBATCH --output=%x-%j.out
+
+module load nixpkgs/16.09  gcc/5.4.0
+module load nixpkgs/16.09  gcc/7.3.0
+module load nixpkgs/16.09  intel/2016.4
+module load nixpkgs/16.09  intel/2017.1
+module load nixpkgs/16.09  intel/2018.3
+module load bwa/0.7.17 python/3.9.6 samtools/1.12
+pip install numpy --user
+pip install macs2 --user
+MACS2=$HOME/.local/bin/macs2
+
+#Let's make the ref genome files a variable so you can build your script around that 
+GENOME="/cvmfs/ref.mugqic/genomes/species/Homo_sapiens.hg19/genome/Homo_sapiens.hg19.fa"
+INDEX="/cvmfs/ref.mugqic/genomes/species/Homo_sapiens.hg19/genome/bwa_index/Homo_sapiens.hg19.fa"
+
