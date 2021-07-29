@@ -1,0 +1,8 @@
+#Trim your sequencing reads if anything is low quality 
+#maybe remove adapter sequences - although I don't think you need to for BWA alignment afterwards
+
+#SCRIPT
+
+module load trimmomatic/0.39
+
+#ACTUALLY let's put a pin in this and try just going straight to the aligner (BWA or bowtie 2) WORK SMARK NOT HARD
