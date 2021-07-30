@@ -3,8 +3,10 @@
 
 #Let's run our .fastq files through a genome aligner 
 #this will convert the .fastq to either a BAM or SAM file 
-    #BAM you can read, SAM is binary format (faster)
+    #SAM you can read, BAM is binary format
 #Compute Canada already has ref genomes
+
+#Below, this is all going to go into our script
 
 #!/bin/bash
 #SBATCH --account=def-akelling
@@ -17,7 +19,8 @@ module load nixpkgs/16.09  gcc/7.3.0
 module load nixpkgs/16.09  intel/2016.4
 module load nixpkgs/16.09  intel/2017.1
 module load nixpkgs/16.09  intel/2018.3
-module load bwa/0.7.17 python/3.9.6 samtools/1.12
+module load python/3.8.10
+module load bwa/0.7.17 samtools/1.12
 pip install numpy --user
 pip install macs2 --user
 MACS2=$HOME/.local/bin/macs2
@@ -28,4 +31,62 @@ INDEX="/cvmfs/ref.mugqic/genomes/species/Homo_sapiens.hg19/genome/bwa_index/Homo
 
 #Make some variables for your script
 ID="Westgrid"
-WORKDIR=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY
+WORKDIR=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/$ID
+PLATFORM="Illumina"
+SAMPLE="westtest"
+THREADS=16
+mkdir $WORKDIR
+cd $WORKDIR
+
+#More variables: now for files names for files we don't have yet 
+FASTQ_R1=$WORKDIR/$SAMPLE.R1.fastq.gz
+FASTQ_R2=$WORKDIR/$SAMPLE.R2.fastq.gz
+SAM_FILE=$WORKDIR/$SAMPLE.sam
+BAM_FILE=$WORKDIR/$SAMPLE.bam
+MACS2_DIR=$WORKDIR/MACS2
+PEAKS_FILE=$MACS2_DIR/${SAMPLE}_peaks.narrowPeak
+
+#1st command: map the reads to the genome using BWA
+#This if/fi loop only does what's in the block if the files do not already exist - that way if you have to run this again, it will just skip this part if it completed last time
+if [ ! -f #SAM_FILE ]; then
+    #bwa mem is the command to run bwa. it needs: [options] <ref index> <1.fq> [2.fq] 
+    #the -t option is for the cores/threads that we told it to use earlier
+    bwa mem -t $THREADS -M \
+    -R "@RG\tID:$ID\tSM:$SAMPLE\tPL:$PLATFORM" \
+    $INDEX $FASTQ_R1 $FASTQ_R2 > $SAM_FILE
+fi
+
+#2nd: convert SAM to sorted BAM for downstream programs 
+if [ ! -f $BAM_FILE ]; then
+    samtools view -Shu --threads `expr $THREADS - 1` $SAM_FILE | \
+    samtools sort --threads `expr $THREADS -1` -o $BAM_FILE -
+    samtools index $BAM_FILE
+fi
+
+#3rd: call peaks in MACS2
+if [ ! -f $PEAKS_FILE ]; then
+    $MACS2 callpeak -t $BAM_FILE \
+    -n $SAMPLE \
+    -p 0.00001 \
+    --outdir $MACS2_DIR \
+    -B --SPMR
+fi
+
+#########################
+#He visualized MACS2 files by linking his compute canada to his local cmpt so you can have a GUI 
+
+#you made the dir "Portal" on your local to enable this
+#instal osx fuse (did that 29Jul21) 
+
+#sshfs akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/ ./Portal/
+#now when you "cd portal" you should see the compute canada links you provided 
+#and now you can open the app IGV (downloaded local applications)
+    #and you should see "OSFUSE" as an option on your local so you can see and open your files 
+
+
+########
+#This will give you all the nec files, but this does not complete MACS2 with a control file
+#you need to make new variables and loops for the control one
+#OR you can take the output of this script and just run the desired files in the MACS2 loop 
+#add a "-c" then your control BAM file after the -t line
+########
