@@ -1,4 +1,5 @@
 #bwa.sh
+#downloaded nec programs first
 
 #!/bin/bash
 #SBATCH --account=def-akelling
