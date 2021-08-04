@@ -15,7 +15,8 @@ Mine:
 - QC: FASTQC
 - align: BWA (bwa_2.sh)
 - BAM format: samtools
-- peak calling: MACS2
+- peak calling: MACS2 
+    https://github.com/macs3-project/MACS
 
 Gorini 2020
 - QC: NGS-QC Toolkit
