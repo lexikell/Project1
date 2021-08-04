@@ -12,8 +12,10 @@ to use in Compute Canada
 
 #PIPLINE OUTLINES
 Mine: 
-FASTQC quality check, then convert to SAM/BAM, then align 
-(lol)
+- QC: FASTQC
+- align: BWA (bwa_2.sh)
+- BAM format: samtools
+- peak calling: MACS2
 
 Gorini 2020
 - QC: NGS-QC Toolkit
