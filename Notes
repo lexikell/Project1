@@ -29,9 +29,9 @@ NOTES: BASIC COMMANDS
 	this corrupts your file(?)
 -need to write a bash script (script) to submit your job 
 -command “partition-stats” 
+-cntl+C will quit a running command
 -sq command for checking running jobs status 
 - sacct checks all jobs (previous jobs)
--can load the prerequisites package along with the package you actually want, just make sure the prerequisites are before your final wanted package in the list of “module load” command EX) module load java fastqc (I think)
 -choosing runtime and memory etc: 
 	use interactive nodes (note file)
 - “ls -a” is a way to see hidden files in your dir 
