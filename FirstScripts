@@ -5,9 +5,15 @@
 
 
 SCRIPTS
-all start with: 
-    #!/bin/bash
-and once made in nano, run "chmod +x demo.sh" for whatever script to give yourself permission to use it 
+#all start with: 
+#    #!/bin/bash
+#permission after script saved in nano 
+#   "chmod +x demo.sh"
+#to submit job: "sbatch bwa_2.sh"
+#"sq" checks your job submissions
+#--time=days-hours:minutes:seconds
+#"seff JOBID" will tell you the stats of a past job
+
 
 #Loop practice
 #in the carpentry.files dir
