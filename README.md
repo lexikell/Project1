@@ -12,7 +12,7 @@ to use in Compute Canada
 
 #PIPLINE OUTLINES
 Mine: 
-- QC: FASTQC
+- QC: FASTQC (prologue. Files not used in downstream)
 - align: BWA (bwa_2.sh)
 - BAM format: samtools
 - peak calling: MACS2 
