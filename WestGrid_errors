@@ -1,0 +1,43 @@
+[akelling@cedar5 Westgrid]$ Westgrid.sh
+usage: virtualenv [--version] [--with-traceback] [-v | -q] [--app-data APP_DATA] [--clear-app-data] [--discovery {builtin}] [-p py] [--creator {builtin,cpython3-posix,venv}] [--seeder {app-data,pip}] [--no-seed]
+                  [--activators comma_sep_list] [--clear] [--system-site-packages] [--symlinks | --copies] [--download | --no-download] [--extra-search-dir d [d ...]] [--pip version] [--setuptools version] [--wheel version] [--no-pip]
+                  [--no-setuptools] [--no-wheel] [--symlink-app-data] [--prompt prompt] [-h]
+                  dest
+virtualenv: error: argument dest: the destination . is not write-able at /
+/home/akelling/bin/Westgrid.sh: line 9: /env/bin/activate: No such file or directory
+Defaulting to user installation because normal site-packages is not writeable
+Ignoring pip: markers 'python_version < "3"' don't match your environment
+Looking in links: /cvmfs/soft.computecanada.ca/custom/python/wheelhouse/gentoo/avx2, /cvmfs/soft.computecanada.ca/custom/python/wheelhouse/gentoo/generic, /cvmfs/soft.computecanada.ca/custom/python/wheelhouse/generic
+Requirement already up-to-date: pip<21 in /cvmfs/soft.computecanada.ca/easybuild/software/2020/avx2/Core/python/3.9.6/lib/python3.9/site-packages (from -c /cvmfs/soft.computecanada.ca/config/python/constraints.txt (line 2)) (20.0.2)
+Ignoring pip: markers 'python_version < "3"' don't match your environment
+Looking in links: /cvmfs/soft.computecanada.ca/custom/python/wheelhouse/gentoo/avx2, /cvmfs/soft.computecanada.ca/custom/python/wheelhouse/gentoo/generic, /cvmfs/soft.computecanada.ca/custom/python/wheelhouse/generic
+Requirement already satisfied: numpy in /home/akelling/.local/lib/python3.9/site-packages (1.21.0+computecanada)
+Ignoring pip: markers 'python_version < "3"' don't match your environment
+Looking in links: /cvmfs/soft.computecanada.ca/custom/python/wheelhouse/gentoo/avx2, /cvmfs/soft.computecanada.ca/custom/python/wheelhouse/gentoo/generic, /cvmfs/soft.computecanada.ca/custom/python/wheelhouse/generic
+Requirement already satisfied: macs2 in /home/akelling/.local/lib/python3.9/site-packages (2.2.7.1)
+Requirement already satisfied: numpy>=>=1.17 in /home/akelling/.local/lib/python3.9/site-packages (from macs2) (1.21.0+computecanada)
+Unloading StdEnv/2020
+
+Inactive Modules:
+  1) libffi/3.3     2) python/3.9.6     3) qt/5.12.8
+
+
+Lmod is automatically replacing "gcc/7.3.0" with "intel/2016.4".
+
+Lmod has detected the following error:  These module(s) or extension(s) exist but cannot be loaded as requested: "libffi/3.3",
+"python/3.9.6", "intel/2020.1.217", "intel/2021.2.0", "qt/5.12.8"
+   Try: "module spider libffi/3.3 python/3.9.6 intel/2020.1.217 intel/2021.2.0 qt/5.12.8" to see how to load the module(s).
+
+
+
+Lmod has detected the following error:  These module(s) or extension(s) exist but cannot be loaded as requested: "bwa/0.7.17"
+   Try: "module spider bwa/0.7.17" to see how to load the module(s).
+
+
+
+mkdir: cannot create directory ‘/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/Westgrid’: File exists
+mv: cannot stat '/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/Westgrid/westtest_R1.fastq.gz': No such file or directory
+mv: cannot stat '/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/Westgrid/westtest_R2.fastq.gz': No such file or directory
+/home/akelling/bin/Westgrid.sh: line 55: syntax error near unexpected token `fi'
+/home/akelling/bin/Westgrid.sh: line 55: `fi'
+[akelling@cedar5 Westgrid]$ 
