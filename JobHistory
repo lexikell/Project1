@@ -1,0 +1,98 @@
+#Job History
+
+#bwa_2.sh
+9316647
+    ran out of time
+    files saved in bwa_1
+    took 10.28GB of mem (I think I assigned 160Gb?)
+9326025
+    failed
+    no computer anything used - kicked off?
+9338320 PAb1test
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 16
+    CPU Utilized: 1-01:13:10
+    CPU Efficiency: 49.35% of 2-03:06:08 core-walltime
+    Job Wall-clock time: 03:11:38
+    Memory Utilized: 10.39 GB
+    Memory Efficiency: 1.30% of 800.00 GB
+
+#samtools
+none
+    tried to submit without using SBATCH
+    no work
+9342705 partial PAb1 = samtest.bam 
+    success!
+    Job ID: 9342705
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 16
+    CPU Utilized: 00:14:44
+    CPU Efficiency: 6.03% of 04:04:32 core-walltime
+    Job Wall-clock time: 00:15:17
+    Memory Utilized: 857.26 MB
+    Memory Efficiency: 0.33% of 256.00 GB
+
+    [akelling@cedar1 bwa_1]$ samtools flagstat samtest.bam
+    32931258 + 0 in total (QC-passed reads + QC-failed reads)
+    0 + 0 secondary
+    691 + 0 supplementary
+    0 + 0 duplicates
+    31482673 + 0 mapped (95.60% : N/A)
+    32930567 + 0 paired in sequencing
+    16465284 + 0 read1
+    16465283 + 0 read2
+    30933849 + 0 properly paired (93.94% : N/A)
+    31205715 + 0 with itself and mate mapped
+    276267 + 0 singletons (0.84% : N/A)
+    204140 + 0 with mate mapped to a different chr
+    100318 + 0 with mate mapped to a different chr (mapQ>=5)
+9421033 PAb1test
+    122515666 + 0 in total (QC-passed reads + QC-failed reads)
+    0 + 0 secondary
+    2704 + 0 supplementary
+    0 + 0 duplicates
+    117325462 + 0 mapped (95.76% : N/A)
+    122512962 + 0 paired in sequencing
+    61256481 + 0 read1
+    61256481 + 0 read2
+    115431868 + 0 properly paired (94.22% : N/A)
+    116441502 + 0 with itself and mate mapped
+    881256 + 0 singletons (0.72% : N/A)
+    758984 + 0 with mate mapped to a different chr
+    376435 + 0 with mate mapped to a different chr (mapQ>=5)
+
+#macs2
+9351857 partial PAb1 = in folder "peaks" in bwa_1
+    "wc -l"= 30952 MACS2Test_summits.bed
+
+    Job ID: 9351857
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 16
+    CPU Utilized: 00:02:56
+    CPU Efficiency: 5.85% of 00:50:08 core-walltime
+    Job Wall-clock time: 00:03:08
+    Memory Utilized: 0.00 MB (estimated maximum)
+    Memory Efficiency: 0.00% of 256.00 GB (16.00 GB/core)
+9435733 PAb1_test
+    Job ID: 9435733
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 16
+    CPU Utilized: 00:08:33
+    CPU Efficiency: 6.07% of 02:20:48 core-walltime
+    Job Wall-clock time: 00:08:48
+    Memory Utilized: 411.54 MB
+    Memory Efficiency: 0.50% of 80.00 GB
+
+    117468 MACS2PAb1_test_summits.bed
