@@ -110,6 +110,7 @@ fi
 #now when you "cd portal" you should see the compute canada links you provided 
 #and now you can open the app IGV (downloaded local applications)
     #and you should see "OSFUSE" as an option on your local so you can see and open your files 
+#if mount error occurs, you have to "umount" the connection to unmount it and then redo the above command 
 
 ########
 #This will give you all the nec files, but this does not complete MACS2 with a control file
