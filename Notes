@@ -50,6 +50,7 @@ NOTES: BASIC COMMANDS
     NOTE: you have to re-install each time (most likely)
 -no hup is a way to run your command in the background and not worry about logging out
 	"nohup sh yourscript.sh" when wanting to run
+- ls -sh "file" will show the size of the file 
 
 
 *******************************
@@ -67,9 +68,6 @@ cat allows you to open the file to look at it
 
  So to upload a file you just need to open a terminal window without logging into cedar but navigate to the folder where all your data is then type 
 scp filename yourcomputecanadausername:/yourcomputecanadapathway
-
-scp 2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY akelling:/akelling@cedar.computecanada.ca
-
 
 ------------------------
 First notes:
@@ -89,3 +87,13 @@ First notes:
 
 #first file = test file with PAb1 R1
 >projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/PAbJUL1_S1_L001_R2_001.fastq.gz
+
+------------------------
+GREAT
+#moved .bed files to local 
+scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/Westgrid/Westgrid/PAb1_test/peaks/MACS2PAb1_test_peaks.narrowPeak /Users/lexikellington/MACS2
+#^this moves the file from the server to the local BUT YOU MUST USE THIS COMMAND IN THE LOCAL TERMINAL
+
+#then removed the last columns of the bed file so that it only contained the Chr, start, end, and name 
+cut -f-4 <MACS2PAb1_test_peaks.narrowPeak.bed >MACS2PAb1_test_peaks.narrowPeakEDIT.bed
+#now this can upload 
