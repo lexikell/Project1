@@ -72,10 +72,6 @@ scp filename yourcomputecanadausername:/yourcomputecanadapathway
 ------------------------
 First notes:
 
-#visualize that first file in your downloads 
->cd downloads
-> zless 2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/PAbJUL1_S1_L001_R1_001.fastq.gz
-
 # how many seq are in your file? :: divide by four to count just seq lines
 > cat 2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/PAbJUL1_S1_L001_R1_001.fastq.gz | echo $((`wc -l`/4))
 
@@ -84,9 +80,6 @@ First notes:
 
 # see what’s in Data folder on Compute Canada
 >ls projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY
-
-#first file = test file with PAb1 R1
->projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/PAbJUL1_S1_L001_R2_001.fastq.gz
 
 ------------------------
 GREAT
