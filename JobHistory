@@ -67,6 +67,70 @@ none
     758984 + 0 with mate mapped to a different chr
     376435 + 0 with mate mapped to a different chr (mapQ>=5)
 
+#bwa_v3
+Job ID: 14279360
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: FAILED (exit code 1)
+    Nodes: 1
+    Cores per node: 16
+    CPU Utilized: 00:00:12
+    CPU Efficiency: 0.47% of 00:42:56 core-walltime
+    Job Wall-clock time: 00:02:41
+    Memory Utilized: 0.00 MB (estimated maximum)
+    Memory Efficiency: 0.00% of 320.00 GB (20.00 GB/core)
+Job ID: 14340477
+    failed again 
+#bwa_v5
+    Job ID: 14460758
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 8
+    CPU Utilized: 1-00:04:24
+    CPU Efficiency: 76.50% of 1-07:28:00 core-walltime
+    Job Wall-clock time: 03:56:00
+    Memory Utilized: 11.87 GB
+    Memory Efficiency: 7.42% of 160.00 GB
+
+    Job ID: 14483895
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 8
+    CPU Utilized: 15:45:52
+    CPU Efficiency: 72.78% of 21:39:36 core-walltime
+    Job Wall-clock time: 02:42:27
+    Memory Utilized: 10.61 GB
+    Memory Efficiency: 8.84% of 120.00 GB
+
+    Job ID: 14489968
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 8
+    CPU Utilized: 18:15:20
+    CPU Efficiency: 73.92% of 1-00:41:44 core-walltime
+    Job Wall-clock time: 03:05:13
+    Memory Utilized: 10.26 GB
+    Memory Efficiency: 8.55% of 120.00 GB
+
+    Job ID: 14521142
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 8
+    CPU Utilized: 15:17:14
+    CPU Efficiency: 67.19% of 22:45:12 core-walltime
+    Job Wall-clock time: 02:50:39
+    Memory Utilized: 10.06 GB
+    Memory Efficiency: 8.39% of 120.00 GB
+
+
 #macs2
 9351857 partial PAb1 = in folder "peaks" in bwa_1
     "wc -l"= 30952 MACS2Test_summits.bed
