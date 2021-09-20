@@ -31,6 +31,8 @@ WORKDIR=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.202
 SAM_FILE=$WORKDIR/$ID/$NAME.sam
 BAM_FILE=$WORKDIR/$ID/$NAME.bam
 
+#need to make sample folder/dir (ID name) BEFORE you use script! Otherwise it has nowhere to go and you'll get error codes!
+
 FASTQ_R1=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/PAbJUL3_S3_L001_R1_001.fastq.gz
 FASTQ_R2=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/PAbJUL3_S3_L001_R2_001.fastq.gz
 
