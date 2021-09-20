@@ -4,9 +4,6 @@ to use in Compute Canada
 
 #PLAN
 - your script drafts can go in this project and you can move/run them in computecanada
-- Can download a PAb and CAb (exp and cntrl Ab) dataset to your local and test that way (?)
-    may be too slow
-    can also use the terminal within VSCode
 - Once tested on your own, you could even test on SRA db
     https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc
 
