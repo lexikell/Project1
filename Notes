@@ -27,9 +27,9 @@ NOTES: BASIC COMMANDS
 -DO NOT
 	mv
 	this corrupts your file(?)
--need to write a bash script (script) to submit your job 
 -command “partition-stats” 
 -cntl+C will quit a running command
+-scancel <jobid> will quit the job 
 -sq command for checking running jobs status 
 - sacct checks all jobs (previous jobs)
 -choosing runtime and memory etc: 
@@ -43,7 +43,7 @@ NOTES: BASIC COMMANDS
 	defaults to 10 lines if you don’t specify n
 - “./“ is wherever dir you are in currently (so you don’t have to write out the whole path)
 -“which+xxx” tells you where xxx is located 
-- “ls -l” tells us what’s in the dir AND what it is (file or dir)
+- “ls -l” tells us what’s in the dir AND what it is (file or dir) and permissions 
 -“pwd” tells us where you are 
 -“tree” shows what is in what dirs
 -"module list" checks what is loaded
@@ -77,9 +77,6 @@ First notes:
 
 #How many lines are in your file? 
 > cat 2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/PAbJUL1_S1_L001_R1_001.fastq.gz | echo wc -l
-
-# see what’s in Data folder on Compute Canada
->ls projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY
 
 ------------------------
 GREAT
