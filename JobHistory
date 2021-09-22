@@ -130,6 +130,41 @@ Job ID: 14340477
     Memory Utilized: 10.06 GB
     Memory Efficiency: 8.39% of 120.00 GB
 
+    Job ID: 14604972
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 8
+    CPU Utilized: 19:31:31
+    CPU Efficiency: 76.13% of 1-01:38:48 core-walltime
+    Job Wall-clock time: 03:12:21
+    Memory Utilized: 10.24 GBsq
+    Memory Efficiency: 8.54% of 120.00 GB
+
+    Job ID: 14629389
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 8
+    CPU Utilized: 12:49:32
+    CPU Efficiency: 70.39% of 18:13:12 core-walltime
+    Job Wall-clock time: 02:16:39
+    Memory Utilized: 9.58 GB
+    Memory Efficiency: 7.98% of 120.00 GB
+
+    Job ID: 14704689
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 8
+    CPU Utilized: 16:15:57
+    CPU Efficiency: 69.74% of 23:19:20 core-walltime
+    Job Wall-clock time: 02:54:55
+    Memory Utilized: 9.85 GB
+    Memory Efficiency: 8.21% of 120.00 GB
 
 #macs2
 9351857 partial PAb1 = in folder "peaks" in bwa_1
