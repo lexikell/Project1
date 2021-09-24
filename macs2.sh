@@ -1,5 +1,3 @@
-#macs2.sh
-
 #!/bin/bash
 #SBATCH --account=def-juniacke
 #SBATCH --job-name=macs2
