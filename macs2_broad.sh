@@ -2,7 +2,7 @@
 #SBATCH --account=def-juniacke
 #SBATCH --job-name=macs2_broad
 #SBATCH --ntasks-per-node=6
-#SBATCH --time=0-00:30:00
+#SBATCH --time=0-00:40:00
 #SBATCH --mem-per-cpu=3G
 #SBATCH --output=BwaMem.%J.out
 #SBATCH --error=BwaMem.%J.err
@@ -15,8 +15,8 @@ MACS2=$HOME/.local/bin/macs2
 
 ID="18Sept21"
 WORKDIR=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY
-SAMPLE="PAbJUL1"
-CNTL="CAbJUL2"
+SAMPLE="PAbJUL7"
+CNTL="CAbJUL8"
 SNAME="$SAMPLE""_""$ID"
 CNAME="$CNTL""_""$ID"
 
