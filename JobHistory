@@ -225,3 +225,54 @@ PAb1 and CAb2
     wc -l PAbJUL1_MACS2broad_18Sept21_control_lambda.bdg 45568725
     wc -l PAbJUL1_MACS2broad_18Sept21_treat_pileup.bdg 76801157
     172390 PAbJUL1_MACS2broad_18Sept21_peaks.broadPeak
+
+    Job ID: 14857788
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 6
+    CPU Utilized: 00:18:30
+    CPU Efficiency: 16.43% of 01:52:36 core-walltime
+    Job Wall-clock time: 00:18:46
+    Memory Utilized: 1.06 GB
+    Memory Efficiency: 5.91% of 18.00 GB
+
+    72652517 PAbJUL3_MACS2broad_18Sept21_control_lambda.bdg
+    71887947 PAbJUL3_MACS2broad_18Sept21_treat_pileup.bdg
+    100286 PAbJUL3_MACS2broad_18Sept21_peaks.broadPeak
+
+    Job ID: 14861348
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 6
+    CPU Utilized: 00:18:40
+    CPU Efficiency: 16.46% of 01:53:24 core-walltime
+    Job Wall-clock time: 00:18:54
+    Memory Utilized: 1.01 GB
+    Memory Efficiency: 5.61% of 18.00 GB
+
+    69194077 PAbJUL5_MACS2broad_18Sept21_control_lambda.bdg
+    84139862 PAbJUL5_MACS2broad_18Sept21_treat_pileup.bdg
+    78792 PAbJUL5_MACS2broad_18Sept21_peaks.broadPeak
+
+    Job ID: 14862749
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 6
+    CPU Utilized: 00:15:27
+    CPU Efficiency: 16.21% of 01:35:18 core-walltime
+    Job Wall-clock time: 00:15:53
+    Memory Utilized: 882.37 MB
+    Memory Efficiency: 4.79% of 18.00 GB
+
+    44674489 PAbJUL7_MACS2broad_18Sept21_control_lambda.bdg
+    91628061 PAbJUL7_MACS2broad_18Sept21_treat_pileup.bdg
+    49183 PAbJUL7_MACS2broad_18Sept21_peaks.broadPeak
+
+    THAT MAKES SENSE! 
+    you have less OG marks pulled down in your phys samples vs your norm and hyp samples (sig dif? idk)
