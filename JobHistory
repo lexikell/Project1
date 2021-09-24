@@ -166,6 +166,18 @@ Job ID: 14340477
     Memory Utilized: 9.85 GB
     Memory Efficiency: 8.21% of 120.00 GB
 
+    Job ID: 14746560
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 8
+    CPU Utilized: 19:50:56
+    CPU Efficiency: 67.37% of 1-05:27:52 core-walltime
+    Job Wall-clock time: 03:40:59
+    Memory Utilized: 9.58 GB
+    Memory Efficiency: 7.98% of 120.00 GB
+
 #macs2
 9351857 partial PAb1 = in folder "peaks" in bwa_1
     "wc -l"= 30952 MACS2Test_summits.bed
@@ -195,3 +207,21 @@ Job ID: 14340477
     Memory Efficiency: 0.50% of 80.00 GB
 
     117468 MACS2PAb1_test_summits.bed
+
+#macs2_broad
+PAb1 and CAb2
+    Job ID: 14814474
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 6
+    CPU Utilized: 00:17:49
+    CPU Efficiency: 15.99% of 01:51:24 core-walltime
+    Job Wall-clock time: 00:18:34
+    Memory Utilized: 950.42 MB
+    Memory Efficiency: 5.16% of 18.00 GB
+
+    wc -l PAbJUL1_MACS2broad_18Sept21_control_lambda.bdg 45568725
+    wc -l PAbJUL1_MACS2broad_18Sept21_treat_pileup.bdg 76801157
+    172390 PAbJUL1_MACS2broad_18Sept21_peaks.broadPeak
