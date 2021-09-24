@@ -106,7 +106,9 @@ fi
 #you made the dir "Portal" on your local to enable this
 #instal osx fuse (did that 29Jul21) 
 
-#sshfs akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/ ./Portal/
+#on your local terminal in the home directory, use this link:
+
+#sshfs akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21 ./Portal/
 #now when you "cd portal" you should see the compute canada links you provided 
 #and now you can open the app IGV (downloaded local applications)
     #and you should see "OSFUSE" as an option on your local so you can see and open your files 
