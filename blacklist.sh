@@ -13,8 +13,15 @@ module load nixpkgs/16.09  intel/2018.3
 
 module load bedtools/2.29.2
 
-blacklist=~/projects/def-sponsor00/SHARE/ChIP-seq/resources/QC_resources/hg38_blacklist.bed LINK YOURS
-input=~/peaks/MCF10A_H3K27ac_peaks.narrowPeak PAb FILE
-sample="MCF10A_H3K27ac_peaks" NAME IT
-bedtools intersect -v -a ${input} -b ${blacklist} > ~/peaks/${sample}.blacklistRemoved.narrowPeak THE ONE YOU WANT
-bedtools intersect -u -a ${input} -b ${blacklist} > ~/peaks/${sample}.blacklist.narrowPeak YOU DONT CARE ABOUT THE BLACKLIST AS AN OUTPUT
+#remove the blacklist regions
+#save output in new dir in macs2
+
+ID="18Sept21"
+WORKDIR=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/macs2
+SAMPLE="PAbJUL1"
+
+blacklist=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/blacklist/hg38-blacklist.bed
+sample=$WORKDIR/$SAMPLE"_MACS2broad_"$ID"_peaks.broadPeak"
+name="$SAMPLE""_MACS2broad_blacklistRemoved_""$ID"
+
+bedtools intersect -v -a $sample -b $blacklist > $WORKDIR/blacklistRemoved/$name.broadPeak
