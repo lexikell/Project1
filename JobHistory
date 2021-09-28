@@ -276,3 +276,54 @@ PAb1 and CAb2
 
     THAT MAKES SENSE! 
     you have less OG marks pulled down in your phys samples vs your norm and hyp samples (sig dif? idk)
+
+#blacklist
+    Job ID: 15218396
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 8
+    CPU Utilized: 00:00:05
+    CPU Efficiency: 6.25% of 00:01:20 core-walltime
+    Job Wall-clock time: 00:00:10
+    Memory Utilized: 0.00 MB (estimated maximum)
+    Memory Efficiency: 0.00% of 120.00 GB (15.00 GB/core)
+
+    Job ID: 15221520
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 8
+    CPU Utilized: 00:00:03
+    CPU Efficiency: 5.36% of 00:00:56 core-walltime
+    Job Wall-clock time: 00:00:07
+    Memory Utilized: 0.00 MB (estimated maximum)
+    Memory Efficiency: 0.00% of 8.00 GB (1.00 GB/core)
+
+    Job ID: 15221739
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 8
+    CPU Utilized: 00:00:03
+    CPU Efficiency: 6.25% of 00:00:48 core-walltime
+    Job Wall-clock time: 00:00:06
+    Memory Utilized: 0.00 MB (estimated maximum)
+    Memory Efficiency: 0.00% of 8.00 GB (1.00 GB/core)
+
+    Job ID: 15222514
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 8
+    CPU Utilized: 00:00:03
+    CPU Efficiency: 6.25% of 00:00:48 core-walltime
+    Job Wall-clock time: 00:00:06
+    Memory Utilized: 0.00 MB (estimated maximum)
+    Memory Efficiency: 0.00% of 8.00 GB (1.00 GB/core)
+
+    removes 1000 worth of space compared to the older file
