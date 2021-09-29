@@ -14,7 +14,7 @@ module load scipy-stack/2021a
 pip install git+https://github.com/dpryan79/py2bit
 pip install pyBigWig
 pip install pysam
-module load matplotlib/3.4.2
+
 pip install deeptools
 
 ID="18Sept21"
@@ -31,11 +31,6 @@ name="multiBamSummary_""$ID"
 
 #correlate bam files using DeepTools MultiBamSummary and plotCorrelation tools 
 
-deepTools2.0/bin/multiBamSummary bins --bamfiles $S1 $S2 $S3 $S4 $C1 --labels Normoxia Hypoxia Physioxia8 Physioxia5 IgG --blackListFileName $blacklist -o $output/$name.npz
+multiBamSummary bins --bamfiles $S1 $S2 $S3 $S4 $C1 --labels Normoxia Hypoxia Physioxia8 Physioxia5 IgG --blackListFileName $blacklist -o $output/$name.npz
 
-#AND ALSO ADD THE GRAPH ONE TOO?:
-
-deepTools2.0/bin/plotCorrelation -in $output/$name.npz --corMethod spearman --skipZeros --plotTitle "Spearman Correlation of Read Counts" \
-    --whatToPlot heatmap --colorMap RdYlBu --plotNumbers \
-    -o $output/heatmap_SpearmanCorr_$name.png   \
-    --outFileCorMatrix $output/SpearmanCorr_$name.tab
+#AND ALSO ADD THE GRAPH ONE TOO?: no apparently not
