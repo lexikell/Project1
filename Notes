@@ -87,3 +87,5 @@ scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akellin
 #then removed the last columns of the bed file so that it only contained the Chr, start, end, and name 
 cut -f-4 <MACS2PAb1_test_peaks.narrowPeak.bed >MACS2PAb1_test_peaks.narrowPeakEDIT.bed
 #now this can upload 
+
+scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/deeptools/heatmap_SpearmanCorr_multiBamSummary_18Sept21.png /Users/lexikellington/seq/deeptools
