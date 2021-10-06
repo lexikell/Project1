@@ -1,0 +1,42 @@
+#!/bin/bash
+#SBATCH --account=def-juniacke
+#SBATCH --job-name=dt_plot
+#SBATCH --ntasks-per-node=8
+#SBATCH --time=0-00:05:00
+#SBATCH --mem-per-cpu=100MB
+#SBATCH --output=dt_plot.%J.out
+#SBATCH --error=dt_plot.%J.err
+
+module load StdEnv/2020
+module load gcc/9.3.0
+module load python/3.9
+module load scipy-stack/2021a
+module load imkl/2020.1.217
+module unload r-bundle-bioconductor/3.12
+
+pip install plotly
+
+pip install deeptools
+
+#dt_plot.sh
+#this also requires next to no mem so you can just run directly in terminal 
+#I loaded above modules and you have to unload the r-bundle that contains plotly so that you can load your own plotly with pip install - I think otherwise deeptools doesn't know where to look
+#This makes a heat map of the coverage files you produce with multibamsum to compare samples' genome coverage
+
+ID="18Sept21"
+WORKDIR=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21
+S1=$WORKDIR/"PAbJUL1""_""$ID".bam
+S2=$WORKDIR/"PAbJUL3""_""$ID".bam
+S3=$WORKDIR/"PAbJUL5""_""$ID".bam
+S4=$WORKDIR/"PAbJUL7""_""$ID".bam
+C1=$WORKDIR/"CAbJUL2""_""$ID".bam
+
+blacklist=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/blacklist/hg38-blacklist.bed
+output=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/deeptools
+name="multiBamSummary_""$ID"
+plotCorrelation -in $output/$name.npz --corMethod spearman --skipZeros --plotTitle "Spearman Correlation of Read Counts" --whatToPlot heatmap --colorMap RdYlBu --plotNumbers -o $output/heatmap_SpearmanCorr_$name.png --outFileCorMatrix $output/SpearmanCorr_$name.tab
+
+plotCorrelation -in $output/$name.npz --corMethod pearson --skipZeros --removeOutliers --plotTitle "Pearson Correlation of Read Counts" --whatToPlot heatmap --colorMap RdYlBu --plotNumbers -o $output/heatmap_PearsonCorr_$name.png --outFileCorMatrix $output/PearsonCorr_$name.tab
+plotCorrelation -in $output/$name.npz --corMethod pearson --skipZeros --removeOutliers --plotTitle "Pearson Correlation of Read Counts" --whatToPlot heatmap --colorMap RdYlBu --plotNumbers -o $output/heatmap_PearsonCorr_nooutliers_$name.png --outFileCorMatrix $output/PearsonCorr_nooutliers_$name.tab
+
+#scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/deeptools/heatmap_PearsonCorr_nooutliers_multiBamSummary_18Sept21.png /Users/lexikellington/seq/deeptools
