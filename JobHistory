@@ -381,3 +381,15 @@ dt_fingerprint.sh
     Job Wall-clock time: 04:36:01
     Memory Utilized: 134.96 MB
     Memory Efficiency: 0.11% of 120.00 GB
+
+    Job ID: 15835909
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 8
+    CPU Utilized: 02:39:22
+    CPU Efficiency: 10.97% of 1-00:12:40 core-walltime
+    Job Wall-clock time: 03:01:35
+    Memory Utilized: 112.29 MB
+    Memory Efficiency: 1.37% of 8.00 GB
