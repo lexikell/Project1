@@ -394,7 +394,7 @@ dt_fingerprint.sh
     Memory Utilized: 112.29 MB
     Memory Efficiency: 1.37% of 8.00 GB
 
-bamcompareN.sh
+bamcompare.sh
     Job ID: 15960924
     Cluster: cedar
     User/Group: akelling/akelling
@@ -407,3 +407,52 @@ bamcompareN.sh
     Memory Utilized: 55.57 MB
     Memory Efficiency: 0.05% of 120.00 GB
 
+    Job ID: 16057713
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 15
+    CPU Utilized: 01:21:39
+    CPU Efficiency: 5.46% of 1-00:55:45 core-walltime
+    Job Wall-clock time: 01:39:43
+    Memory Utilized: 55.82 MB
+    Memory Efficiency: 0.02% of 225.00 GB
+
+    Job ID: 16057720
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 10
+    Cores per node: 1
+    CPU Utilized: 01:29:21
+    CPU Efficiency: 5.31% of 1-04:03:30 core-walltime
+    Job Wall-clock time: 01:52:14
+    Memory Utilized: 184.27 MB
+    Memory Efficiency: 0.08% of 225.00 GB
+
+dt_cmatrix.sh
+    Job ID: 16494020
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: OUT_OF_MEMORY (exit code 0)
+    Nodes: 3
+    Cores per node: 5
+    CPU Utilized: 01:15:10
+    CPU Efficiency: 6.63% of 18:53:45 core-walltime
+    Job Wall-clock time: 01:15:35
+    Memory Utilized: 867.51 MB
+    Memory Efficiency: 5.65% of 15.00 GB
+
+dt_cmatrixheat.sh
+    Job ID: 16497181
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 5
+    Cores per node: 3
+    CPU Utilized: 01:21:03
+    CPU Efficiency: 6.60% of 20:27:30 core-walltime
+    Job Wall-clock time: 01:21:50
+    Memory Utilized: 1.64 GB
+    Memory Efficiency: 2.19% of 75.00 GB
