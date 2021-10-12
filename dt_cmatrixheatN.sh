@@ -2,8 +2,8 @@
 #SBATCH --account=def-juniacke
 #SBATCH --job-name=dt_cmatrixheatN
 #SBATCH --ntasks=15
-#SBATCH --time=0-03:00:00
-#SBATCH --mem-per-cpu=3G
+#SBATCH --time=0-05:00:00
+#SBATCH --mem-per-cpu=15G
 #SBATCH --output=dt_cmatrixheatN.%J.out
 #SBATCH --error=dt_cmatrixheatN.%J.err
 
