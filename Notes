@@ -24,6 +24,7 @@ BIN
 ***********************************
 NOTES: BASIC COMMANDS
 
+-"cd .." moves you up one directory 
 -DO NOT
 	mv
 	this corrupts your file(?)
