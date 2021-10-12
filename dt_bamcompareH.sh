@@ -1,19 +1,15 @@
 #!/bin/bash
 #SBATCH --account=def-juniacke
-#SBATCH --job-name=dt_bamcompare
-#SBATCH --ntasks-per-node=8
-#SBATCH --time=0-08:00:00
-#SBATCH --mem-per-cpu=15G
-#SBATCH --output=dt_bamcompare.%J.out
-#SBATCH --error=dt_bamcompare.%J.err
+#SBATCH --job-name=dt_bamcompare5
+#SBATCH --ntasks=15
+#SBATCH --time=0-03:00:00
+#SBATCH --mem-per-cpu=1G
+#SBATCH --output=dt_bamcompare5.%J.out
+#SBATCH --error=dt_bamcompare5.%J.err
 
 module load StdEnv/2020
 module load python/3.9.6
 module load scipy-stack/2021a
-
-pip install git+https://github.com/dpryan79/py2bit
-pip install pyBigWig
-pip install pysam
 
 pip install deeptools
 
@@ -34,6 +30,6 @@ C4=$WORKDIR/"CAbJUL8""_""$ID".bam
 
 blacklist=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/blacklist/hg38-blacklist.bed
 output=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/deeptools
-name="bamcompare_H_""$ID"
+name="bamcompare_5_""$ID"
 
-bamCompare -b1 $S2 -b2 $C2 --scaleFactorsMethod SES -bl $blacklist -o $name.bw -of bigwig
+bamCompare -b1 $S4 -b2 $C4 --scaleFactorsMethod SES -bl $blacklist -o $name.bw -of bigwig
