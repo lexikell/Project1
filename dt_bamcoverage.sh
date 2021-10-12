@@ -2,8 +2,8 @@
 #SBATCH --account=def-juniacke
 #SBATCH --job-name=dt_bamcoverage
 #SBATCH --ntasks-per-node=15
-#SBATCH --time=0-04:00:00
-#SBATCH --mem-per-cpu=2G
+#SBATCH --time=0-01:30:00
+#SBATCH --mem-per-cpu=1G
 #SBATCH --output=dt_bamcoverage.%J.out
 #SBATCH --error=dt_bamcoverage.%J.err
 
@@ -32,6 +32,6 @@ C4=$WORKDIR/"CAbJUL8""_""$ID".bam
 
 blacklist=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/blacklist/hg38-blacklist.bed
 output=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/deeptools
-name="bamcoverage_NC_""$ID"
+name="bamcoverage_5C_""$ID"
 
-bamCoverage -b $C1 -o $name.bw -of bigwig -bl $blacklist
+bamCoverage -b $C4 -o $name.bw -of bigwig -bl $blacklist
