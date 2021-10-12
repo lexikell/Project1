@@ -1,11 +1,11 @@
 #!/bin/bash
 #SBATCH --account=def-juniacke
-#SBATCH --job-name=dt_bamcompare
-#SBATCH --ntasks-per-node=8
-#SBATCH --time=0-08:00:00
-#SBATCH --mem-per-cpu=15G
-#SBATCH --output=dt_bamcompare.%J.out
-#SBATCH --error=dt_bamcompare.%J.err
+#SBATCH --job-name=dt_bamcompare8
+#SBATCH --ntasks-per-node=15
+#SBATCH --time=0-04:00:00
+#SBATCH --mem-per-cpu=1G
+#SBATCH --output=dt_bamcompare8.%J.out
+#SBATCH --error=dt_bamcompare8.%J.err
 
 module load StdEnv/2020
 module load python/3.9.6
@@ -34,6 +34,8 @@ C4=$WORKDIR/"CAbJUL8""_""$ID".bam
 
 blacklist=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/blacklist/hg38-blacklist.bed
 output=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/deeptools
-name="bamcompare_N_""$ID"
+name="bamcompare_8_""$ID"
 
-bamCompare -b1 $S1 -b2 $C1 --scaleFactorsMethod SES -bl $blacklist -o $name.bw -of bigwig
+bamCompare -b1 $S3 -b2 $C3 --scaleFactorsMethod SES -bl $blacklist -o $name.bw -of bigwig
+
+#bw IS BINARY
