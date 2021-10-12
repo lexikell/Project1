@@ -368,6 +368,36 @@ dt_multibwsum
 
     Number of bins found: 310139
 
+    all samples:
+    Job ID: 16521890
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 8
+    CPU Utilized: 00:13:27
+    CPU Efficiency: 12.17% of 01:50:32 core-walltime
+    Job Wall-clock time: 00:13:49
+    Memory Utilized: 56.32 MB
+    Memory Efficiency: 0.69% of 8.00 GB
+
+    Number of bins found: 310139
+
+    all w/ gene list:
+    Job ID: 16522073
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 8
+    CPU Utilized: 00:04:34
+    CPU Efficiency: 10.87% of 00:42:00 core-walltime
+    Job Wall-clock time: 00:05:15
+    Memory Utilized: 128.79 MB
+    Memory Efficiency: 1.57% of 8.00 GB
+
+    Number of bins found: 95036 (215,103 less w/ the gene list)
+
 #dt_plot.sh
     Job ID: 15308752
     Cluster: cedar
