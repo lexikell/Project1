@@ -1,21 +1,19 @@
 #!/bin/bash
 #SBATCH --account=def-juniacke
-#SBATCH --job-name=dt_bamcorr
+#SBATCH --job-name=dt_bwsum
 #SBATCH --ntasks-per-node=8
 #SBATCH --time=0-06:00:00
 #SBATCH --mem-per-cpu=15G
-#SBATCH --output=dt_bamcorr.%J.out
-#SBATCH --error=dt_bamcorr.%J.err
+#SBATCH --output=dt_bwsum.%J.out
+#SBATCH --error=dt_bwsum.%J.err
 
 module load StdEnv/2020
 module load python/3.9.6
 module load scipy-stack/2021a
 
-pip install git+https://github.com/dpryan79/py2bit
-pip install pyBigWig
-pip install pysam
-
 pip install deeptools
+
+#dt_multibwsum.sh
 
 ID="18Sept21"
 WORKDIR=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21
