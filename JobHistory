@@ -353,6 +353,20 @@ PAb1 and CAb2
     Memory Utilized: 61.76 MB
     Memory Efficiency: 0.05% of 120.00 GB
 
+dt_multibwsum
+    Job ID: 16518843
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 8
+    CPU Utilized: 00:09:01
+    CPU Efficiency: 11.80% of 01:16:24 core-walltime
+    Job Wall-clock time: 00:09:33
+    Memory Utilized: 45.05 MB
+    Memory Efficiency: 0.04% of 120.00 GB
+
+    Number of bins found: 310139
 
 #dt_plot.sh
     Job ID: 15308752
@@ -456,3 +470,16 @@ dt_cmatrixheat.sh
     Job Wall-clock time: 01:21:50
     Memory Utilized: 1.64 GB
     Memory Efficiency: 2.19% of 75.00 GB
+
+dt_bamcoverage.sh
+    Job ID: 16512591
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 15
+    CPU Utilized: 00:36:23
+    CPU Efficiency: 6.58% of 09:13:15 core-walltime
+    Job Wall-clock time: 00:36:53
+    Memory Utilized: 127.40 MB
+    Memory Efficiency: 0.41% of 30.00 GB
