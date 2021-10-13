@@ -45,6 +45,11 @@ name="multibwSummary_all_""$ID"
 multiBigwigSummary bins -b $S1 $S2 $S3 $S4 $NC $HC $C8 $C5 --labels Normoxia Hypoxia Physioxia8 Physioxia5 IgGN IgGH IgG8 IgG5 --blackListFileName $blacklist -o $output/$name.npz
 
 #and graphs? might have to uninstall the R package again (but we added on top so idk)
-plotCorrelation -in $output/$name.npz --corMethod spearman --skipZeros --plotTitle "Spearman Correlation of Read Counts" --whatToPlot heatmap --colorMap RdYlGn --plotNumbers -o $output/heatmap_$name.png --outFileCorMatrix $output/SpearmanCorr_$name.tab
+plotCorrelation -in $output/$name.npz --corMethod spearman --skipZeros --plotTitle "Spearman Correlation of Read Counts" \
+--whatToPlot heatmap --colorMap RdYlGn --plotNumbers -o $output/heatmap_$name.png --outFileCorMatrix $output/SpearmanCorr_$name.tab
 
-#scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/deeptools/heatmap_multibwSummary_all_18Sept21.png /Users/lexikellington/seq/deeptools
+#scatterplot too
+plotCorrelation -in $output/$name.npz --corMethod spearman --skipZeros --plotTitle "Pearson Correlation of Average Scores Per Transcript" \
+--whatToPlot scatterplot -o $output/scatterplot_$name.png
+
+#scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/deeptools/scatterplot_multibwSummary_all_18Sept21.png /Users/lexikellington/seq/deeptools
