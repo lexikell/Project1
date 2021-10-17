@@ -1,0 +1,18 @@
+Compute Canada Genome notes
+
+/cvmfs/ref.mugqic/genomes
+
+/cvmfs/ref.mugqic/genomes/species/Homo_sapiens.GRCh38/annotations
+>>
+Homo_sapiens.GRCh38.Ensembl90.geneid2Symbol.tsv
+    >ENSG00000223972 DDX11L1
+Homo_sapiens.GRCh38.Ensembl90.genes.tsv
+    >featureID       SYMBOL  gene_biotype    gene.length
+    >ENSG00000223972 DDX11L1 transcribed_unprocessed_pseudogene      1735
+Homo_sapiens.GRCh38.Ensembl90.GO.tsv
+    descriptions of the GO features(?)
+Homo_sapiens.GRCh38.Ensembl90.gtf 
+Homo_sapiens.GRCh38.Ensembl90.ncrna.fa
+Homo_sapiens.GRCh38.RefSeq.bed
+dir: ncrna_bwa_index
+    has fasta and possibly sam files of ncRNA 
