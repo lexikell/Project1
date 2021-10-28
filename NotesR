@@ -1,0 +1,35 @@
+#notes on using R/Rstudio
+
+#Rob H on Youtube uses unix (linux?) language within R 
+    - so I think I was just confused when reading the bioconductor code, but I guess I can just call things using unix language
+    - which makes sense bc ppl say that R has many ways to do one thing
+    - also bc I *think* I could technically download python within Rstudio and run python within (and vice versa with python)
+
+use "<-" to assign a variable
+
+#Rstudio
+- top left holds your scripts
+- bottom left is your terminal
+    - either R specific (console) or your local terminal (can probably ssh in there(?))
+- bottom right is your help/programs/whatever
+    - also where you see any graphs
+- top right has your environment info 
+    - contains list of variables you have already set
+- to run a script
+    - can highlight script and hit "run" (or command+enter)
+    - in your ternminal, can run R script using "Rscript" followed by the location of your script and script name
+        - for ex) "Rscript /Users/lexikellington/R/rectangle.R"
+
+#run on Compute canada
+- use the normal bash script slurm job stats that you have on your .sh scripts, and then you can go straight to running your R script using "Rscript" function 
+    - for example: "Rscript computation.R" would be your only line of code, as long as the .R is within the same directory you are currently in (otherwise, define that dir)
+
+---
+mir:
+-srun before program? 
+-send to email for run times
+    -it will make a "slurm" file on the run error 
+    -and then see if you close your cmpt this will not fail (she says itll be good)
+-emacs is her nano 
+-add the bioconductor app that they don't have
+-compute canada wiki for nodes selection 
