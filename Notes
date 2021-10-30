@@ -89,4 +89,6 @@ scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akellin
 cut -f-4 <PAbJUL7_MACS2broad_blacklistRemoved_18Sept21.broadPeak >PAbJUL7_MACS2broad_blacklistRemovedEDIT_18Sept21.bed
 #now this can upload 
 
-scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/deeptools/heatmap_SpearmanCorr_multiBamSummary_18Sept21.png /Users/lexikellington/seq/deeptools
+
+
+scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/macs2/blacklistRemoved/PAbJUL1_MACS2broad_blacklistRemoved_18Sept21.broadPeak /Users/lexikellington/seq/MACS2
