@@ -89,6 +89,21 @@ scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akellin
 cut -f-4 <PAbJUL7_MACS2broad_blacklistRemoved_18Sept21.broadPeak >PAbJUL7_MACS2broad_blacklistRemovedEDIT_18Sept21.bed
 #now this can upload 
 
+-------------------------
+MOVING SAMPLES
 
+#N and N IgG
+SN=$WORKDIR/PAbJUL1
+CN=$WORKDIR/"CAbJUL2"
+#H and H IgG
+SN=$WORKDIR/"PAbJUL3"
+CH=$WORKDIR/"CAbJUL4"
+#8% and 8% IgG
+S8=$WORKDIR/"PAbJUL5"
+C8=$WORKDIR/"CAbJUL6"
+#5% and 5% IgG
+S5=$WORKDIR/"PAbJUL7"
+C5=$WORKDIR/"CAbJUL8"
 
-scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/macs2/blacklistRemoved/PAbJUL1_MACS2broad_blacklistRemoved_18Sept21.broadPeak /Users/lexikellington/seq/MACS2
+to local
+scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/macs2/blacklistRemoved/PAbJUL7_MACS2broad_blacklistRemoved_18Sept21.broadPeak /Users/lexikellington/seq/MACS2
