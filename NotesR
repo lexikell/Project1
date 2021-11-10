@@ -5,9 +5,8 @@
     - which makes sense bc ppl say that R has many ways to do one thing
     - also bc I *think* I could technically download python within Rstudio and run python within (and vice versa with python)
 
-use "<-" to assign a variable
-
 #Rstudio
+- use "<-" to assign a variable
 - A list of unix and R equivalent commands
     - https://www.r-bloggers.com/2018/12/10-r-functions-for-linux-commands-and-vice-versa/
 - top left holds your scripts
@@ -25,6 +24,29 @@ use "<-" to assign a variable
 - If the console is sitting at a "+" and not the typical ">" for inputting commands, just hit "esc" to cancel last command
     - it's waiting for more info but idk what 
 - DOES NOT automatically save your files 
+- basic stats:
+    - median of given column in df: median(annoIDsNdf_upTSS[["pValue"]])
+    - can do the same with mean, range, others
+    - count how many values are in a given variable/column: annoIDsHdf_upTSS %>% count(score)
+    - which row has the max value in a given column?: which.max(annoIDsNdf_upTSS$pValue) #output a row number
+        - then look at that column content using: annoIDsNdf_upTSS[39576, ]
+
+
+dataframe in R:
+    - this is a two dimensional array/table
+    - each column is a variable with X values
+    - each row is one set of values from each column 
+- grep: how to count how many terms within your whatever 
+    - ex) find "FAM" in the annoIDs dataframe: grep("FAM", annoIDsHdf)
+    count nas: sum(is.na(annoIDsHdf))
+- make new df excluding NA:
+    - count total rows: nrow(df)
+    - count NA: sum(is.na(df$col))      #sum(is.na(annoIDsNdf$symbol))
+    - new_df <- na.omit(df, c("myvar1", "myvar2"))
+    - nrow(newdf)
+- subset df  
+    - Select all columns from Sepal.Length to Petal.Length: my_data %>% select(Sepal.Length:Petal.Length)
+
 
 #run on Compute canada
 - use the normal bash script slurm job stats that you have on your .sh scripts, and then you can go straight to running your R script using "Rscript" function 
