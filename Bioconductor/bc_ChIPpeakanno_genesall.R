@@ -24,6 +24,21 @@ gr5 <- toGRanges(macs5, format="broadPeak")
 ol_NHP <- findOverlapsOfPeaks(grN, grH, gr8, gr5)
 ol_NHP$overlappingPeaks -> NHPolpeaks
 ol_NHP$peaklist -> NHPpeaks
+#INFO: findOverlapsOfPeaks returns an object of overlappingPeaks, which contains there elements: 
+#venn_cnt, peaklist (a list of overlapping peaks or unique peaks), and overlappingPeaks (a list of data frame consists of the annotation of all the overlapping peaks).
+#look at relationships: 
+#names of overlapping: #output: "gr8///gr5" "grH///gr5" "grH///gr8" "grN///gr5" "grN///gr8" "grN///grH"
+names(NHPolpeaks)  
+#show peaks in common bt two names: 
+NHPolpeaks[["grN///grH"]]
+#^or same but only first two rows: 
+NHPolpeaks[["grN///grH"]][1:2, ]
+#returns the merged overlapping peaks from the peaklist object:
+NHPpeaks[["grN///grH"]]
+#The peaks in peaks1 but not overlap with the other peaks
+NHPpeaks[["grN"]]
+
+
 
 
 #Let's make a venn of the overlapping peaks with each sample
