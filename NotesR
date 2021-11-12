@@ -39,6 +39,7 @@ dataframe in R:
 - grep: how to count how many terms within your whatever 
     - ex) find "FAM" in the annoIDs dataframe: grep("FAM", annoIDsHdf) #then show row of what was named
 - count nas: sum(is.na(annoIDsHdf))
+- list column features: unique(genelistNdf$insideFeature)
 - make new df excluding NA:
     - count total rows: nrow(df)
     - count NA: sum(is.na(df$col))      #sum(is.na(annoIDsNdf$symbol))
