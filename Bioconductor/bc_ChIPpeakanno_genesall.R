@@ -182,7 +182,9 @@ annoIDs5df_hits <- na.omit(annoIDs5df, c("symbol"))
 nrow(annoIDs5df_hits)
 A-B
 
-#make new df w/ only "values"upstream" values in "insideFeature" column 
+install.packages("tidyverse")
+library(dplyr)
+#make new df w/ only "upstream" values in "insideFeature" column 
 #annoIDsNdf_upTSS <- subset(annoIDsNdf_hits, insideFeature == upstream)
 #OR using dyplr:
 annoIDsNdf_upTSS <- filter(annoIDsNdf_hits, insideFeature == "upstream")
@@ -202,6 +204,31 @@ annoIDs8df_hits %>% count(insideFeature)
 annoIDs5df_upTSS <- filter(annoIDs5df_hits, insideFeature == "upstream")
 nrow(annoIDs5df_upTSS)
 annoIDs5df_hits %>% count(insideFeature)
+
+#how many gene hits are >=8kb upTSS?
+sum(annoIDs5df_upTSS$distancetoFeature >= -8000)  #output: 7557
+#make a new df with upTSS gene hits but only >= 8kb upstream TSS
+annoIDsNdf_upTSS$distancetoFeature>=-8000 -> upTSS8kb_N  #makes a T/F vector
+annoIDsNdf_upTSS8kb <- subset(annoIDsNdf_upTSS, upTSS8kb_N)
+annoIDsNdf_upTSS8kb
+nrow(annoIDsNdf_upTSS8kb)
+
+annoIDsHdf_upTSS$distancetoFeature>=-8000 -> upTSS8kb_H
+annoIDsHdf_upTSS8kb <- subset(annoIDsHdf_upTSS, upTSS8kb_H)
+annoIDsHdf_upTSS8kb
+nrow(annoIDsHdf_upTSS8kb)
+
+annoIDs8df_upTSS$distancetoFeature>=-8000 -> upTSS8kb_8
+annoIDs8df_upTSS8kb <- subset(annoIDs8df_upTSS, upTSS8kb_8)
+annoIDs8df_upTSS8kb
+nrow(annoIDs8df_upTSS8kb)
+
+annoIDs5df_upTSS$distancetoFeature >= -8000 -> upTSS8kb_5
+annoIDs5df_upTSS8kb <- subset(annoIDs5df_upTSS, upTSS8kb_5)
+annoIDs5df_upTSS8kb
+nrow(annoIDs5df_upTSS8kb)
+
+
 
 #make a new subset with only gene names with a score >= 200
 annoIDsNdf_upTSS$score >= 200 -> ScoreN200
@@ -234,3 +261,4 @@ nrow(annoIDs8df_upTSSs100)
 annoIDs5df_upTSS$score >= 100 -> Score5100
 annoIDs5df_upTSSs100 <- subset(annoIDs5df_upTSS, Score5100)
 nrow(annoIDs5df_upTSSs100)
+
