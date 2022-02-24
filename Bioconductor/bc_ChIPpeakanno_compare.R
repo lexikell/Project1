@@ -150,13 +150,37 @@ ol_NHP_upTSS8kb$venn_cnt -> VennCountNHP_upTSS8kb
 write.csv(VennCountNHP_upTSS8kb, file = "VennCountNHPupTSS8kb_10Nov21.csv")
 #annotate
 #show peaks in common bt two names: 
-NHP_upTSSs100_peaks[["upTSSs100_8.gr///upTSSs100_5.gr"]]
+NHP_upTSS8kb_peaks[["upTSS8kb_8gr///upTSS8kb_5gr"]]
 #then locate the common one in the olpeaks to get peak name to search file for gene name
-NHP_upTSSs100_peaks[["upTSSs100_8.gr///upTSSs100_5.gr"]]
-#search peak name in gene list of that sample
-grep("59686445", upTSSs100_8.gr)  #output: 28
+NHP_upTSS8kb_olpeaks[["upTSS8kb_8gr///upTSS8kb_5gr"]]
 
-upTSSs100_8.gr[28, ] -> promoter
-data.frame(promoter)
-grep("59686445", upTSSs100_8.broadpeak) #output:4 THIS IS NOT THE ROW IDK WHAT THIS IS
-upTSSs100_8.broadpeak[2, ]
+##Get gene names from the overlapping peaks list:
+#save the comparison metatable as a df
+NHPup8kb_peaks_8vs5.df <- data.frame(NHP_upTSS8kb_peaks[["upTSS8kb_8gr///upTSS8kb_5gr"]])
+NHPup8kb_olpeaks_8vs5.df <- data.frame(NHP_upTSS8kb_olpeaks[["upTSS8kb_8gr///upTSS8kb_5gr"]])
+#save "in common" list of ranges (start and end NT) which matches the venn:
+NHP_upTSS8kb_peaks[["upTSS8kb_8gr///upTSS8kb_5gr"]]@ranges -> NHP_up8kb_peaks_8vs5
+#then make this a df to search
+NHPup8kb_peaksSE_8vs5.df <- data.frame(NHP_up8kb_peaks_8vs5)
+#Now we can compare the start/end positions to the "annoIDs8df" start/end to get gene names
+NHPup8kb_peaksSE_8vs5genes.df <- annoIDs8df %>% filter(start %in% NHPup8kb_peaksSE_8vs5.df$start)
+
+#take the olpeaks df and turn into BED (start/end; p/qvalues)
+#and then addgeneids 
+#or for peaks list (not olpeaks?)
+
+######
+#OR just use the annoIDs8df_upTSS8kb df and minus the other samples?
+#shorter df list to include only scores above 100 (which is equal to qvalue I think)
+annoIDs8df_upTSS8kb$score >= 100 -> Score100_up8kb8
+annoIDs8df_upTSS8kbs100 <- subset(annoIDs8df_upTSS8kb, Score100_up8kb8)
+nrow(annoIDs8df_upTSS8kbs100)
+annoIDsNdf_upTSS8kb$score >= 100 -> Score100_up8kbN
+annoIDsNdf_upTSS8kbs100 <- subset(annoIDsNdf_upTSS8kb, Score100_up8kbN)
+nrow(annoIDsNdf_upTSS8kbs100)
+annoIDsHdf_upTSS8kb$score >= 100 -> Score100_up8kbH
+annoIDsHdf_upTSS8kbs100 <- subset(annoIDsHdf_upTSS8kb, Score100_up8kbH)
+nrow(annoIDsHdf_upTSS8kbs100)
+annoIDs5df_upTSS8kb$score >= 100 -> Score100_up8kb5
+annoIDs5df_upTSS8kbs100 <- subset(annoIDs5df_upTSS8kb, Score100_up8kb5)
+nrow(annoIDs5df_upTSS8kbs100)
