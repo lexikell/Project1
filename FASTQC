@@ -12,16 +12,18 @@
 #fastqc.sh
 
 #!/bin/bash
-#SBATCH --account=def-akelling
+#SBATCH --account=def-juniacke
 #SBATCH --time=00:01:00
 #SBATCH --job-name=test.qc
-#SBATCH --output=%x-%j.out
+#SBATCH --output=qc2.%J.out
+#SBATCH --error=qc2.%J.err
 
+module load StdEnv/2020
 module load nixpkgs/16.09
 module load fastqc/0.11.9
-for VAR in ~/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/*.fastq.gz
+for VAR in ~/home/akelling/projects/def-juniacke/akelling/project_202107/10_rawdata/111021AKellington/JULN_L001_ds.d6f14a6f2a1c4806a1433ea893862f8e/*.fastq.gz
 do
-    fastqc $VAR -o ./TEST_fastqc
+    fastqc $VAR -o /home/akelling/projects/def-juniacke/akelling/project_202107/11_QC
 done
 
 # ##############################
