@@ -10,7 +10,7 @@ to use in Compute Canada
 #PIPLINE OUTLINES
 Mine: 
 - QC: FASTQC (prologue. Files not used in downstream)
-- align: BWA (bwa_2.sh)
+- align: BWA
 - BAM format: samtools
 - peak calling: MACS2 
     https://github.com/macs3-project/MACS
