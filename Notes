@@ -107,3 +107,11 @@ C5=$WORKDIR/"CAbJUL8"
 
 to local
 scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/macs2/blacklistRemoved/PAbJUL7_MACS2broad_blacklistRemoved_18Sept21.broadPeak /Users/lexikellington/seq/MACS2
+
+10_raw_data:
+	Rep1 = 2I7I3XE
+	Rep2 = 111021AKellington
+		/home/akelling/projects/def-juniacke/akelling/project_202107/10_rawdata/111021AKellington
+		8 samples; each in 4 lanes; each lane has 2 reads
+		after seperate QC, reads were cat together before BWA 
+		
