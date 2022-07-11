@@ -1,4 +1,5 @@
 #Bioconductor ChIPPeakAnno: analysis workflow on all 4 samples to get gene names
+#USE THIS ONE
 
 #moved the 4 samples (blacklist removed) files onto your local
 #loaded bioconductor using their if loop on website (done from before)
