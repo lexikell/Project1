@@ -46,7 +46,7 @@ dataframe in R:
     - new_df <- na.omit(df, c("myvar1", "myvar2"))
     - nrow(newdf)
 - subset df  
-    - Select all columns from Sepal.Length to Petal.Length: my_data %>% select(Sepal.Length:Petal.Length)
+    - df2<- dplyr::select ( df1,A,B,C)
 
 
 #run on Compute canada
