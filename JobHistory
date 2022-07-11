@@ -294,6 +294,19 @@ PAb1 and CAb2
     THAT MAKES SENSE! 
     you have less OG marks pulled down in your phys samples vs your norm and hyp samples (sig dif? idk)
 
+    macs2broad_2.sh
+    Job ID: 36869204
+    Cluster: cedar
+    User/Group: akelling/akelling
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 6
+    CPU Utilized: 00:28:49
+    CPU Efficiency: 16.18% of 02:58:06 core-walltime
+    Job Wall-clock time: 00:29:41
+    Memory Utilized: 1.22 GB
+    Memory Efficiency: 6.79% of 18.00 GB
+
 #blacklist
     Job ID: 15218396
     Cluster: cedar
