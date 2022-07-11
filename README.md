@@ -12,8 +12,13 @@ Mine:
 - QC: FASTQC (prologue. Files not used in downstream)
 - align: BWA
 - BAM format: samtools
-- peak calling: MACS2 
+- peak calling: MACS2 (broadpeak)
     https://github.com/macs3-project/MACS
+- remove Blacklist w/ Bedtools
+- ChipPeakAnno (Bioconductor)
+    uses the broadpeak (blacklist removed) 
+    The "quick guide" compared broadpeak data with the encode hg38 genome and output a list which I saved as a csv file
+        (contains genes names & can be further manipulated)
 
 Gorini 2020
 - QC: NGS-QC Toolkit
