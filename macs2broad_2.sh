@@ -3,7 +3,7 @@
 #SBATCH --job-name=macs2_broad
 #SBATCH --ntasks-per-node=6
 #SBATCH --time=0-00:55:00
-#SBATCH --mem-per-cpu=2.5G
+#SBATCH --mem-per-cpu=3G
 #SBATCH --output=BwaMem.%J.out
 #SBATCH --error=BwaMem.%J.err
 
@@ -22,7 +22,7 @@ CNAME="$CNTL""_""$ID"
 
 BAM_FILE=$WORKDIR/$SNAME.bam
 BAM_FILE_CNTL=$WORKDIR/$CNAME.bam
-MACSID="$SAMPLE""_MACS2broad_""$ID"
+MACSID="$SAMPLE""_MACS2broad_""15Jul22"
 
 #-t file; -f file type; -g genome type (hs human); --outdir in folder "peaks"; -n name
 #this has a looser cuttoff for nearby peaks and averages the score of the larger region
