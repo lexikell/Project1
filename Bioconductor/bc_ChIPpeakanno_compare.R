@@ -184,3 +184,18 @@ nrow(annoIDsHdf_upTSS8kbs100)
 annoIDs5df_upTSS8kb$score >= 100 -> Score100_up8kb5
 annoIDs5df_upTSS8kbs100 <- subset(annoIDs5df_upTSS8kb, Score100_up8kb5)
 nrow(annoIDs5df_upTSS8kbs100)
+
+
+#subset df to include only pvalues above 4 (cuttoff from nature 2021 paper)
+annoIDs8df_upTSS8kb$pValue >= 4 -> pvalue4_up8kb8
+annoIDs8df_upTSS8kbp4 <- subset(annoIDs8df_upTSS8kb, pvalue4_up8kb8)
+nrow(annoIDs8df_upTSS8kbp4)
+annoIDsNdf_upTSS8kb$score >= 100 -> Score100_up8kbN
+annoIDsNdf_upTSS8kbp4 <- subset(annoIDsNdf_upTSS8kb, Score100_up8kbN)
+nrow(annoIDsNdf_upTSS8kbp4)
+annoIDsHdf_upTSS8kb$score >= 100 -> Score100_up8kbH
+annoIDsHdf_upTSS8kbp4 <- subset(annoIDsHdf_upTSS8kb, Score100_up8kbH)
+nrow(annoIDsHdf_upTSS8kbp4)
+annoIDs5df_upTSS8kb$score >= 100 -> Score100_up8kb5
+annoIDs5df_upTSS8kbp4 <- subset(annoIDs5df_upTSS8kb, Score100_up8kb5)
+nrow(annoIDs5df_upTSS8kbp4)
