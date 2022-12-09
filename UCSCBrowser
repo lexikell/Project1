@@ -1,0 +1,22 @@
+#Upload your BigWig files to the UCSC genome browser and compare your data with others
+
+#BigWigs from Deeptools (BamCompare using the sample and the control)
+#To use the UCSC browser online (which is what they recommend) you add your data to a internet accessible server 
+    #UCSC has info on this on their "Track Hubs" page https://genome.ucsc.edu/goldenPath/help/hgTrackHubHelp.html#Hosting
+    #I used Cyverse 
+    #Cyverse: moved files from CC to local and then uploaded to Cyverse
+#Once your data is loaded with public access you can add your own "custom tracks"
+    #Video help: https://www.youtube.com/watch?v=UvHihNbyCh8
+
+#My tracks
+#colours are red, blue, and green, respectively 
+
+track type=bigWig name=“OG_Hypoxia” description=“OG_Hypoxia” color=255,0,0 visibility=2 bigDataUrl=https://data.cyverse.org/dav-anon/iplant/home/akelling/bamcompare_H_1Apr22.bw
+
+track type=bigWig name=“OG_Physioxia5” description=“OG_Physioxia” color=0,175,240 visibility=2 bigDataUrl=https://data.cyverse.org/dav-anon/iplant/home/akelling/bamcompare_5_18Sept21.bw
+
+track type=bigWig name=“OG_Normoxia” description=“OG_Normoxia” color=0,176,80 visibility=2 bigDataUrl=https://data.cyverse.org/dav-anon/iplant/home/akelling/bamcompare_N_18Sept21.bw
+
+#Can paste this link into the "custom tracks" upload and then it'll be available on the genome browser 
+
+##
