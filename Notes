@@ -3,6 +3,10 @@
 #Login compute canada
 >ssh akelling@cedar.computecanada.ca
 
+#to run line by line in CC:
+#request 2 nodes for 1h
+>salloc --time=1:0:0 --ntasks=2 --account=def-juniacke
+
 ===================DAD ORGANIZE===========
 ~/<xxx>/
 Project_202107
