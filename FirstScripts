@@ -13,6 +13,9 @@ SCRIPTS
 #"sq" checks your job submissions
 #--time=days-hours:minutes:seconds
 #"seff JOBID" will tell you the stats of a past job
+#"sacct" will load a list of past jobs 
+#if you have a super short script (like "work" that just goes to and opens a directory) 
+        #then you can use "source" to do it without adding it to the que 
 
 
 #Loop practice
