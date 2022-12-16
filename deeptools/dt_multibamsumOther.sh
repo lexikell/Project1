@@ -42,3 +42,4 @@ plotCorrelation -in $output/$name.npz --corMethod spearman --skipZeros --plotTit
 
 #onto local to visualize
 #scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/deeptools/heatmap_multibwSummary_all_genes18Sept21.png /Users/lexikellington/seq/deeptools
+#53345261
