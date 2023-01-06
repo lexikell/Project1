@@ -1,13 +1,13 @@
 # Project1
-Make gene alignment pipeline from your own data and own scripts
+Make gene alignment pipline from your own data and own scripts
 to use in Compute Canada
 
-# PLAN
+#PLAN
 - your script drafts can go in this project and you can move/run them in computecanada
 - Once tested on your own, you could even test on SRA db
     https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc
 
-# PIPELINE OUTLINES
+#PIPLINE OUTLINES
 Mine: 
 - QC: FASTQC (prologue. Files not used in downstream)
 - align: BWA (bwa_2.sh)
