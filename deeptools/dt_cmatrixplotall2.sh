@@ -50,4 +50,5 @@ plotProfile -m $name --perGroup --kmeans 2 -out $plot3.png
 #heatmap of kmeans clustering
 plotProfile -m $name --perGroup --kmeans 2 --plotType heatmap -out $plot4.png
 
-#scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/deeptools/TSSplotScale_all_cluster18Sept21.png /Users/lexikellington/seq/deeptools
+#scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/project_202107/20_aligned/deeptools/TSSplotScale_all_heatmap1Apr22.png /Users/lexikellington/seq/deeptools
+
