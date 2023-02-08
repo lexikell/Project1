@@ -19,7 +19,11 @@ BIN
 - this is also where dad put “work” which is where your original data folders are - so it’s like a shortcut for the full OG data folder
 - can use “source work” can it will place you where “work” lead -> the OG data folder 
 -if you run “~/bin/work” just by itself it will run “ls -l” on that OG data file and show you what’s in there (in work) 
-
+-Dad settup my bash profile so it always looks in the folder "bin" in my profile 
+	-I just copied his code. idek
+-And then in the bin folder he made a script of just going to the folder of interest and then opening it and titled that script "work" 
+	-so then when I "source work" it's just running that script 
+- I took his code and added it to my local bash profile (.bash_profile) 
 
 ***********************************
 NOTES: BASIC COMMANDS
