@@ -2,8 +2,8 @@
 #SBATCH --account=def-juniacke
 #SBATCH --job-name=dt_bamsumother
 #SBATCH --ntasks-per-node=8
-#SBATCH --time=0-02:00:00
-#SBATCH --mem-per-cpu=2G
+#SBATCH --time=0-04:00:00
+#SBATCH --mem-per-cpu=3G
 #SBATCH --output=dt_bamsum.%J.out
 #SBATCH --error=dt_bamsum.%J.err
 
@@ -35,11 +35,17 @@ blacklist=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.2
 output=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/deeptools/other
 name="multibamSum_OGG1"
 
-multiBamSummary bins --bamfiles $C1 $S1 $S2 $S3 $S4 $S7 --labels IgG Normoxia Hypoxia Physioxia8 Physioxia5 OGG1 --blackListFileName $blacklist -o $output/$name.npz
+#multiBamSummary bins --bamfiles $C1 $S1 $S2 $S3 $S4 $S7 --labels IgG Normoxia Hypoxia Physioxia8 Physioxia5 OGG1 --blackListFileName $blacklist -o $output/$name.npz
 
 #and graphs? 
-plotCorrelation -in $output/$name.npz --corMethod spearman --skipZeros --plotTitle "Spearman Correlation of Read Counts" --whatToPlot heatmap --colorMap coolwarm --plotNumbers -o $output/heatmap_$name.png --outFileCorMatrix $output/SpearmanCorr_$name.tab
+#plotCorrelation -in $output/$name.npz --corMethod spearman --skipZeros --plotTitle "Spearman Correlation of Read Counts" --whatToPlot heatmap --colorMap coolwarm --plotNumbers -o $output/heatmap_$name.png --outFileCorMatrix $output/SpearmanCorr_$name.tab
+
+#more figures 22Feb23
+
+plotCorrelation -in $output/$name.npz --corMethod spearman --skipZeros --plotTitle "Pearson Correlation of Average Scores Per Transcript" \
+--whatToPlot scatterplot -o $output/scatterplot_$name.png
+
+plotPCA -in $output/$name.npz -o $output/PCAreadCounts_$name.png -T "PCA of read counts"
 
 #onto local to visualize
-#scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/deeptools/heatmap_multibwSummary_all_genes18Sept21.png /Users/lexikellington/seq/deeptools
-#53345261
+#scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/deeptools/other/scatterplot_multibamSum_OGG1.png /Users/lexikellington/seq/deeptools
