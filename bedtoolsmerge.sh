@@ -1,43 +1,50 @@
 #!/bin/bash
 #SBATCH --account=def-juniacke
-#SBATCH --job-name=blacklist
+#SBATCH --job-name=merge
 #SBATCH --ntasks-per-node=8
-#SBATCH --time=0-00:20:00
-#SBATCH --mem-per-cpu=1G
-#SBATCH --output=Blacklist.%J.out
-#SBATCH --error=Blacklist.%J.err
+#SBATCH --time=0-00:60:00
+#SBATCH --mem-per-cpu=2G
+#SBATCH --output=merge.%J.out
+#SBATCH --error=merge.%J.err
 
 module load StdEnv/2020
-module load nixpkgs/16.09  gcc/7.3.0
-module load nixpkgs/16.09  intel/2018.3
+#you had these before but maybe they're not nec? idk 
+#module load nixpkgs/16.09  gcc/7.3.0
+#module load nixpkgs/16.09  intel/2018.3
 
-module load bedtools/2.29.2
+module load bedtools/2.30.0
 
-#merge the bam files of the 2 reps (these are aligned but not normalized w/ MACS2 yet)
-#save output in new dir in macs2
+#use intersect to merge the two reps 
+#then bam to bw - goal for IGV / peak visualize 
+#convert to bw with bamcompare (deeptools) to normalize to respective controls 
 
-ID="1Apr22"
-REP1DIR=
-REP2DIR=/home/akelling/projects/def-juniacke/akelling/project_202107/20_aligned
-OUTPUT=/home/akelling/projects/def-juniacke/akelling/project_202107/20_aligned/merge
-SAMPLE="JULH"
+REP1_5=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/macs2/PAbJUL7_MACS2broad_18Sept21_peaks.broadPeak
+REP2_5=/home/akelling/projects/def-juniacke/akelling/project_202107/20_aligned/macs2/JUL5_MACS2broad_1Apr22_peaks.broadPeak
+merge5=/home/akelling/projects/def-juniacke/akelling/project_202107/20_aligned/merge/JUL5_merge.broadpeak
+bedtools intersect -wa -a $REP1_5 -b $REP2_5 > $merge5
 
-blacklist=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/blacklist/hg38-blacklist.bed
-sample=$WORKDIR/$SAMPLE"_MACS2broad_"$ID"_peaks.broadPeak"
-name="$SAMPLE""_MACS2broad_blacklistRemoved_""$ID"
-bedtools intersect -v -a $sample -b $blacklist > $WORKDIR/blacklistRemoved/$name.broadPeak
-#
-ID="1Apr22"
-SAMPLE2="JUL8"
-blacklist=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/blacklist/hg38-blacklist.bed
-sample2=$WORKDIR/$SAMPLE2"_MACS2broad_"$ID"_peaks.broadPeak"
-name2="$SAMPLE2""_MACS2broad_blacklistRemoved_""$ID"
-bedtools intersect -v -a $sample2 -b $blacklist > $WORKDIR/blacklistRemoved/$name2.broadPeak
-#
-ID="1Apr22"
-SAMPLE3="JUL5"
-blacklist=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/blacklist/hg38-blacklist.bed
-sample3=$WORKDIR/$SAMPLE3"_MACS2broad_"$ID"_peaks.broadPeak"
-name3="$SAMPLE3""_MACS2broad_blacklistRemoved_""$ID"
-bedtools intersect -v -a $sample3 -b $blacklist > $WORKDIR/blacklistRemoved/$name3.broadPeak
+REP1_5=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/macs2/PAbJUL7_MACS2broad_18Sept21_peaks.broadPeak
+REP2_5=/home/akelling/projects/def-juniacke/akelling/project_202107/20_aligned/macs2/JUL5_MACS2broad_1Apr22_peaks.broadPeak
+merge5=/home/akelling/projects/def-juniacke/akelling/project_202107/20_aligned/merge/JUL5_merge.broadpeak
+bedtools intersect -wa -a $REP1_5 -b $REP2_5 > $merge5
 
+
+
+REP1N=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/macs2/PAbJUL1_MACS2broad_18Sept21_peaks.broadPeak
+REP2N=/home/akelling/projects/def-juniacke/akelling/project_202107/20_aligned/macs2/JULN_MACS2broad_1Apr22_peaks.broadPeak
+mergeN=/home/akelling/projects/def-juniacke/akelling/project_202107/20_aligned/merge/JULN_merge.broadpeak
+bedtools intersect -wa -a $REP1N -b $REP2N > $mergeN
+
+REP1H=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/macs2/PAbJUL3_MACS2broad_18Sept21_peaks.broadPeak
+REP2H=/home/akelling/projects/def-juniacke/akelling/project_202107/20_aligned/macs2/JULH_MACS2broad_1Apr22_peaks.broadPeak
+mergeH=/home/akelling/projects/def-juniacke/akelling/project_202107/20_aligned/merge/JULH_merge.broadpeak
+bedtools intersect -wa -a $REP1H -b $REP2H > $mergeH
+
+#OH RIGHT the normoxic rep2 macs2 files is no good! So don't use this merged file for the peak images
+#just use the original macs2 files not the merged ones 
+
+#this worked but I want bam not bed (to convert to bw) 
+
+mergeH=/home/akelling/projects/def-juniacke/akelling/project_202107/20_aligned/merge/JULH_merge.broadpeak
+
+bedToBam -i mergeH -g human.hg18.genome > JULH_merge.bam
