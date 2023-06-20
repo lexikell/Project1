@@ -37,6 +37,7 @@ blacklist=/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.2
 output=/home/akelling/projects/def-juniacke/akelling/project_202107/20_aligned/deeptools
 
 #bw IS BINARY
+#I can't use RPKM because that normalizes to transcript length for RNA-seq and we don't want to normalize to transcripts 
 
 name1="bamcompare_N_""$ID"
 bamCompare -b1 $S1 -b2 $C1 --scaleFactorsMethod SES -bl $blacklist -o $name1.bw -of bigwig
