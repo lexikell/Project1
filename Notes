@@ -61,7 +61,7 @@ NOTES: BASIC COMMANDS
 - count how many times a word comes up in a file 
 	- -o: Only outputs the matching parts (i.e., the occurrences of the word) rather than the whole line.
 	- -w: Matches the whole word, preventing partial matches.
-	grep -o -w 'RPS3' JUL8_MACS2broad_1Apr22_peaks.broadPeak | wc -l
+	grep 'ING3' annoIDsN_TSS2Kb_19Sep22.csv | wc -l
 
 
 
@@ -123,6 +123,8 @@ C8=$WORKDIR/"CAbJUL6"
 S5=$WORKDIR/"PAbJUL7"
 C5=$WORKDIR/"CAbJUL8"
 
+scp https://ftp.ebi.ac.uk/pub/databases/Rfam/CURRENT/fasta_files/Rfam.fa.gz akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/project_202107/10_rawdata/OutsideData/Rfam
+
 to local
 scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/macs2/blacklistRemoved/PAbJUL7_MACS2broad_blacklistRemoved_18Sept21.broadPeak /Users/lexikellington/seq/MACS2
 
@@ -133,3 +135,15 @@ scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akellin
 		8 samples; each in 4 lanes; each lane has 2 reads
 		after seperate QC, reads were cat together before BWA 
 		
+---------------------------
+CC course notes:
+
+-idk what this is but their ppt has this: (you should test it later)
+	- #Very handy for copying, compiling tasks. Avoid ssh timeout:
+     $ screen -S myrun
+     …
+     ctrl+a d
+     $ screen –r myrun
+
+-they also used "sq" to check on the job and how it's running
+	- but they also used "top -u $USER" to see a breakdown of how it's running(?) 
