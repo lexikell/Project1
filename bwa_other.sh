@@ -24,13 +24,13 @@ module load StdEnv/2020 samtools/1.12
 
 INDEX=/cvmfs/ref.mugqic/genomes/species/Homo_sapiens.GRCh38/genome/bwa_index/Homo_sapiens.GRCh38.fa
 
-NAME="Hao2018_FLAGOGG1"
+NAME="Vishnu2021_NicEseq"
 THREADS=8
-WORKDIR=/home/akelling/projects/def-juniacke/akelling/project_202107/10_rawdata/OutsideData/Hao2018
+WORKDIR=/home/akelling/projects/def-juniacke/akelling/project_202107/10_rawdata/OutsideData/Vishnu2021
 SAM_FILE=$WORKDIR/$NAME.sam
 BAM_FILE=$WORKDIR/$NAME.bam
 
-FASTQ=/home/akelling/projects/def-juniacke/akelling/project_202107/10_rawdata/OutsideData/Hao2018/SRR4436791.fastq
+FASTQ=/home/akelling/projects/def-juniacke/akelling/project_202107/10_rawdata/OutsideData/Vishnu2021/SRR14667268/SRR14667268.fastq
 #WARNING: this will error if there are temporary files already in the folder 
     #AKA if it times out and you have to re-run! So delete before running again!
 #run bwa to align
