@@ -123,10 +123,10 @@ C8=$WORKDIR/"CAbJUL6"
 S5=$WORKDIR/"PAbJUL7"
 C5=$WORKDIR/"CAbJUL8"
 
-scp https://ftp.ebi.ac.uk/pub/databases/Rfam/CURRENT/fasta_files/Rfam.fa.gz akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/project_202107/10_rawdata/OutsideData/Rfam
+scp /Users/lexikellington/downloads/GSM2902624_HEK293_ATAC_high_depth_bio1_tech1.bw akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/project_202107/10_rawdata/OutsideData/Calviello2019
 
 to local
-scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/macs2/blacklistRemoved/PAbJUL7_MACS2broad_blacklistRemoved_18Sept21.broadPeak /Users/lexikellington/seq/MACS2
+scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/macs2/blacklistRemoved/PAbJUL7_MACS2broad_blacklistRemovedEDIT_18Sept21.bed /Users/lexikellington/seq
 
 10_raw_data:
 	Rep1 = 2I7I3XE
