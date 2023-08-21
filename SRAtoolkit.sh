@@ -12,6 +12,7 @@ module load StdEnv/2020  gcc/9.3.0
 module load sra-toolkit/3.0.0
 
 vdb-config --interactive
+#^ I didn't do the interactive part bc it looked weird when I did that
 
 #SRA.sh
 
