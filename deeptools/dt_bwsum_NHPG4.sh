@@ -78,3 +78,5 @@ plotCorrelation -in $output/$name.npz --corMethod spearman --skipZeros --plotTit
 #- add G4 gene list to excel list? 
 #- make ppt with failed graphs and new upset graph 
 #- whats this enhancer list?
+
+scp /Users/lexikellington/Downloads/Pol.Kid.05.AllAg.293.bed akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/project_202107/10_rawdata/OutsideData/ChIPAtlas
