@@ -23,7 +23,7 @@ BIN
 - this is also where dad put “work” which is where your original data folders are - so it’s like a shortcut for the full OG data folder
 - can use “source work” can it will place you where “work” lead -> the OG data folder 
 -if you run “~/bin/work” just by itself it will run “ls -l” on that OG data file and show you what’s in there (in work) 
-
+	-he just made a script called "work" that first cd's to that folder and then opens it with ls -l
 
 ***********************************
 NOTES: BASIC COMMANDS
@@ -62,8 +62,6 @@ NOTES: BASIC COMMANDS
 	- -o: Only outputs the matching parts (i.e., the occurrences of the word) rather than the whole line.
 	- -w: Matches the whole word, preventing partial matches.
 	grep 'ING3' annoIDsN_TSS2Kb_19Sep22.csv | wc -l
-
-
 
 *******************************
 MIRANDA
@@ -105,8 +103,10 @@ scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akellin
 
 scp /Users/lexikellington/seq/seqMINER/seqMINER_1.3.4 
 
-
-
+rep 1
+/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY
+rep 2 
+/home/akelling/projects/def-juniacke/akelling/project_202107/20_aligned
 -------------------------
 MOVING SAMPLES
 
