@@ -54,3 +54,6 @@ plotProfile -m $name --perGroup --kmeans 2 --plotType heatmap -out $plot4.png
 
 #scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/Data1/2I7I3XE/KEL17000.20210603/210602_A00481_0206_AHFM2CDRXY/18Sept21/deeptools/other/TSSplotScale_OGG1_cluster2.png /Users/lexikellington/seq/deeptools
 
+#ERROR
+#this didn't work, w/ the error "Are the bigwig files from the same species and same assemblies?" 
+    #but the ATACseq data is also aligned to Hg38 so idek 
