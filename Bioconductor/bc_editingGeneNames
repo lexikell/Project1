@@ -1,0 +1,46 @@
+#Editing the gene name file output from bioconductor
+
+#load the CSV into R 
+#otherwise the CSV is too large to edit in their edit window
+annoIDs5df <- data.frame((read.csv("~/Google Drive/My Drive/MSc_PhD/Guelph/JUL/Project/Data/chippeakanno/5_annoIDs_30Oct21.csv")))
+
+#filter the df for just -5000 - +1000 bp 
+annoIDs5df_up5000down1000 <- annoIDs5df[annoIDs5df$distancetoFeature < 1001 & annoIDs5df$distancetoFeature > -5001, ]
+
+#save new filtered file as a CSV on your local
+setwd("~/seq")
+write.csv(annoIDs5df_up5000down1000, file = "annoIDs5df_up5000down1000.csv", row.names = FALSE)
+
+#now do the same for H
+annoIDsHdf <- data.frame((read.csv("~/Google Drive/My Drive/MSc_PhD/Guelph/JUL/Project/Data/chippeakanno/H_annoIDs_30Oct21.csv")))
+annoIDsNdf <- data.frame((read.csv("~/Google Drive/My Drive/MSc_PhD/Guelph/JUL/Project/Data/chippeakanno/N_annoIDs_30Oct21.csv")))
+annoIDsHdf_up5000down1000 <- annoIDsHdf[annoIDsHdf$distancetoFeature < 1001 & annoIDsHdf$distancetoFeature > -5001, ]
+annoIDsNdf_up5000down1000 <- annoIDsNdf[annoIDsNdf$distancetoFeature < 1001 & annoIDsNdf$distancetoFeature > -5001, ]
+setwd("~/seq")
+write.csv(annoIDsHdf_up5000down1000, file = "annoIDsHdf_up5000down1000.csv", row.names = FALSE)
+write.csv(annoIDsNdf_up5000down1000, file = "annoIDsNdf_up5000down1000.csv", row.names = FALSE)
+
+
+#Make CSV into BED file 
+#change CSV file to filter out everything except the chromosome, start site, end site
+
+# Create a new data frame with selected columns
+annoIDsNdf_up5000down1000BED <- annoIDsNdf_up5000down1000[, c("seqnames", "start", "end")]
+#Relabel to fit the bed format 
+colnames(annoIDsNdf_up5000down1000BED) <- c("chrom", "chromStart", "chromEnd")
+write.csv(annoIDsNdf_up5000down1000BED, file = "annoIDsNdf_up5000down1000BED.csv", row.names = FALSE)
+
+#now for the other files
+annoIDsHdf_up5000down1000BED <- annoIDsHdf_up5000down1000[, c("seqnames", "start", "end")]
+colnames(annoIDsHdf_up5000down1000BED) <- c("chrom", "chromStart", "chromEnd")
+write.csv(annoIDsHdf_up5000down1000BED, file = "annoIDsHdf_up5000down1000BED.csv", row.names = FALSE)
+annoIDs5df_up5000down1000BED <- annoIDs5df_up5000down1000[, c("seqnames", "start", "end")]
+colnames(annoIDs5df_up5000down1000BED) <- c("chrom", "chromStart", "chromEnd")
+write.csv(annoIDs5df_up5000down1000BED, file = "annoIDs5df_up5000down1000BED.csv", row.names = FALSE)
+
+# Assuming you have a data frame named 'data' with your data
+
+# Save the data frame as a tab-delimited file
+write.table(annoIDsHdf_up5000down1000BED, file = "annoIDsHdf_up5000down1000BED.bed", sep = "\t", row.names = FALSE)
+write.table(annoIDsNdf_up5000down1000BED, file = "annoIDsNdf_up5000down1000BED.bed", sep = "\t", row.names = FALSE)
+write.table(annoIDs5df_up5000down1000BED, file = "annoIDs5df_up5000down1000BED.bed", sep = "\t", row.names = FALSE)
