@@ -1,0 +1,161 @@
+xrws--- 2 akelling def-juniacke   4096 Dec 13 11:46 preparsed
+[akelling@cdr767 50_HOMER]$ findMotifsGenome.pl annoIDs5df_up5000down1000HOMER.bed hg38 50_HOMER -preparsedDir preparsed
+
+        Position file = annoIDs5df_up5000down1000HOMER.bed
+        Genome = hg38
+        Output Directory = 50_HOMER
+        Found mset for "human", will check against vertebrates motifs
+        Peak/BED file conversion summary:
+                BED/Header formatted lines: 3022
+                peakfile formatted lines: 0
+
+        Peak File Statistics:
+                Total Peaks: 3022
+                Redundant Peak IDs: 7
+                Peaks lacking information: 0 (need at least 5 columns per peak)
+                Peaks with misformatted coordinates: 0 (should be integer)
+                Peaks with misformatted strand: 0 (should be either +/- or 0/1)
+
+        Redunant Peaks found: Remove or rename these or some programs may have trouble...
+
+        7 duplicate peak IDs out of 3022 total peaks
+ls: cannot access 'preparsed/hg38.*.cgbins': No such file or directory
+        Could not find background files for 200 bp fragments
+        Below are the sizes that are already available prepared.
+        HOMER will now create background files for 200 bp fragments
+        To CANCEL and rerun with a differet "-size <#>", hit <CTRL+C> now!
+                5
+                4
+                3
+                2
+                1
+        Preparsing genome for 200 bp fragments...(will probably take 1-5 min)
+        preparse size set to 200
+
+        By default, using /cvmfs/soft.mugqic/CentOS6/software/homer/homer-4.9.1/.//data/genomes/hg38//hg38.tss for reference positions
+        Output files will be placed in preparsed/hg38.200.* ...
+        By default, HOMER will set the the preparsed Directory to be group read/write
+        Extracting sequences
+
+sh: line 1: 13876 Killed                  homerTools extract "preparsed/hg38.200.pos" "/cvmfs/soft.mugqic/CentOS6/software/homer/homer-4.9.1/.//data/genomes/hg38//" > "0.795741031252877.tmp"
+
+!!! Auto-check for your file format disagrees with your selected parameters
+!!! Check your file and your options! Continuing anyway...
+        Sequences processed:
+                0 total
+
+        Frequency Bins: 0.01 0.02 0.03 0.04 0.05 0.06 0.08 0.1 0.12 0.14 0.16
+        Freq    Bin     Count
+        Frequency Bins: 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.6 0.7 0.8
+        Freq    Bin     Count
+
+!!!! Might have something wrong with preparsed files
+!!!! Rerun and add "-preparse" to the command line to force recreation of the files
+
+        Extracting sequences from file: /cvmfs/soft.mugqic/CentOS6/software/homer/homer-4.9.1/.//data/genomes/hg38///genome.fa
+        Looking for peak sequences in a single file (/cvmfs/soft.mugqic/CentOS6/software/homer/homer-4.9.1/.//data/genomes/hg38///genome.fa)
+
+        Not removing redundant sequences
+
+
+        Sequences processed:
+                0 total
+
+        Frequency Bins: 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.6 0.7 0.8
+        Freq    Bin     Count
+
+        Total sequences set to 50000
+
+        Choosing background that matches in CpG/GC content...
+Illegal division by zero at /cvmfs/soft.mugqic/CentOS6/software/homer/homer-4.9.1/bin/assignGeneWeights.pl line 63.
+        Assembling sequence file...
+        Normalizing lower order oligos using homer2
+
+        Reading input files...
+        0 total sequences read
+        Autonormalization: 1-mers (4 total)
+                A       inf%    inf%    -nan
+                C       inf%    inf%    -nan
+                G       inf%    inf%    -nan
+                T       inf%    inf%    -nan
+        Autonormalization: 2-mers (16 total)
+                AA      inf%    inf%    -nan
+                CA      inf%    inf%    -nan
+                GA      inf%    inf%    -nan
+                TA      inf%    inf%    -nan
+                AC      inf%    inf%    -nan
+                CC      inf%    inf%    -nan
+                GC      inf%    inf%    -nan
+                TC      inf%    inf%    -nan
+                AG      inf%    inf%    -nan
+                CG      inf%    inf%    -nan
+                GG      inf%    inf%    -nan
+                TG      inf%    inf%    -nan
+                AT      inf%    inf%    -nan
+                CT      inf%    inf%    -nan
+                GT      inf%    inf%    -nan
+                TT      inf%    inf%    -nan
+        Autonormalization: 3-mers (64 total)
+        Normalization weights can be found in file: 50_HOMER/seq.autonorm.tsv
+        Converging on autonormalization solution:
+        ...............................................................................
+        Final normalization:    Autonormalization: 1-mers (4 total)
+                A       inf%    inf%    -nan
+                C       inf%    inf%    -nan
+                G       inf%    inf%    -nan
+                T       inf%    inf%    -nan
+        Autonormalization: 2-mers (16 total)
+                AA      inf%    inf%    -nan
+                CA      inf%    inf%    -nan
+                GA      inf%    inf%    -nan
+                TA      inf%    inf%    -nan
+                AC      inf%    inf%    -nan
+                CC      inf%    inf%    -nan
+                GC      inf%    inf%    -nan
+                TC      inf%    inf%    -nan
+                AG      inf%    inf%    -nan
+                CG      inf%    inf%    -nan
+                GG      inf%    inf%    -nan
+                TG      inf%    inf%    -nan
+                AT      inf%    inf%    -nan
+                CT      inf%    inf%    -nan
+                GT      inf%    inf%    -nan
+                TT      inf%    inf%    -nan
+        Autonormalization: 3-mers (64 total)
+        Finished preparing sequence/group files
+
+        ----------------------------------------------------------
+        Known motif enrichment
+
+        Reading input files...
+        0 total sequences read
+        364 motifs loaded
+        Cache length = 11180
+        Using binomial scoring
+        Checking enrichment of 364 motif(s)
+        |0%                                    50%                                  100%|
+        =================================================================================
+Illegal division by zero at /cvmfs/soft.mugqic/CentOS6/software/homer/homer-4.9.1/bin/findKnownMotifs.pl line 152.
+        ----------------------------------------------------------
+        De novo motif finding (HOMER)
+
+        Scanning input files...
+!!! Something is wrong... are you sure you chose the right length for motif finding?
+!!! i.e. also check your sequence file!!!
+
+        Scanning input files...
+!!! Something is wrong... are you sure you chose the right length for motif finding?
+!!! i.e. also check your sequence file!!!
+
+        -blen automatically set to 2
+        Scanning input files...
+!!! Something is wrong... are you sure you chose the right length for motif finding?
+!!! i.e. also check your sequence file!!!
+Use of uninitialized value in numeric gt (>) at /cvmfs/soft.mugqic/CentOS6/software/homer/homer-4.9.1/bin/compareMotifs.pl line 1381.
+        !!! Filtered out all motifs!!!
+        Job finished - if results look good, please send beer to ..
+
+        Cleaning up tmp files...
+
+[akelling@cdr767 50_HOMER]$ 
+#SO DID NOT WORK 
