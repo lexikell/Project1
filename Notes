@@ -62,6 +62,10 @@ NOTES: BASIC COMMANDS
 	- -o: Only outputs the matching parts (i.e., the occurrences of the word) rather than the whole line.
 	- -w: Matches the whole word, preventing partial matches.
 	grep 'ING3' annoIDsN_TSS2Kb_19Sep22.csv | wc -l
+- find a whatever in terminal
+	- find ~ -name .bash_profile
+	- ^this will find where .bash_profile is located 
+	- BUT when I did this it's hidden! So just nano it anyway and you'll be able to fix it 
 
 *******************************
 MIRANDA
