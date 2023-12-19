@@ -11,6 +11,9 @@ annoIDs5df_up5000down1000 <- annoIDs5df[annoIDs5df$distancetoFeature < 1001 & an
 setwd("~/seq")
 write.csv(annoIDs5df_up5000down1000, file = "annoIDs5df_up5000down1000.csv", row.names = FALSE)
 
+#save new filtered file as a CSV on your local
+write.csv(annoIDs8df_up5000down1000, file = "annoIDs8df_up5000down1000.csv", row.names = FALSE)
+
 #now do the same for H
 annoIDsHdf <- data.frame((read.csv("~/Google Drive/My Drive/MSc_PhD/Guelph/JUL/Project/Data/chippeakanno/H_annoIDs_30Oct21.csv")))
 annoIDsNdf <- data.frame((read.csv("~/Google Drive/My Drive/MSc_PhD/Guelph/JUL/Project/Data/chippeakanno/N_annoIDs_30Oct21.csv")))
@@ -38,9 +41,58 @@ annoIDs5df_up5000down1000BED <- annoIDs5df_up5000down1000[, c("seqnames", "start
 colnames(annoIDs5df_up5000down1000BED) <- c("chrom", "chromStart", "chromEnd")
 write.csv(annoIDs5df_up5000down1000BED, file = "annoIDs5df_up5000down1000BED.csv", row.names = FALSE)
 
-# Assuming you have a data frame named 'data' with your data
-
 # Save the data frame as a tab-delimited file
 write.table(annoIDsHdf_up5000down1000BED, file = "annoIDsHdf_up5000down1000BED.bed", sep = "\t", row.names = FALSE)
 write.table(annoIDsNdf_up5000down1000BED, file = "annoIDsNdf_up5000down1000BED.bed", sep = "\t", row.names = FALSE)
 write.table(annoIDs5df_up5000down1000BED, file = "annoIDs5df_up5000down1000BED.bed", sep = "\t", row.names = FALSE)
+
+###########################
+#make a new BED that includes the 6 columns needed for HOMER 
+#Columns: chromosome; starting position; ending position; Unique Peak ID; not used; Strand (+/- or 0/1, where 0="+", 1="-")
+
+#moved csvs to local 
+#scp akelling@cedar.computecanada.ca:/home/akelling/projects/def-juniacke/akelling/project_202107/30_bioconductor/rep1/chippeakanno/H_annoIDs_30Oct21.csv /Users/lexikellington/seq
+setwd("/Users/lexikellington/seq")
+#load your csv files back into R 
+annoIDsNdf <- data.frame((read.csv("/Users/lexikellington/seq/N_annoIDs_30Oct21.csv")))
+annoIDs5df <- data.frame((read.csv("/Users/lexikellington/seq/5_annoIDs_30Oct21.csv")))
+annoIDs8df <- data.frame((read.csv("/Users/lexikellington/seq/8_annoIDs_30Oct21.csv")))
+annoIDsHdf <- data.frame((read.csv("/Users/lexikellington/seq/H_annoIDs_30Oct21.csv")))
+#filter the df for just -5000 - +1000 bp 
+annoIDsNdf_up5000down1000 <- annoIDsNdf[annoIDsNdf$distancetoFeature < 1001 & annoIDsNdf$distancetoFeature > -5001, ]
+annoIDs5df_up5000down1000 <- annoIDs5df[annoIDs5df$distancetoFeature < 1001 & annoIDs5df$distancetoFeature > -5001, ]
+annoIDs8df_up5000down1000 <- annoIDs8df[annoIDs8df$distancetoFeature < 1001 & annoIDs8df$distancetoFeature > -5001, ]
+annoIDsHdf_up5000down1000 <- annoIDsHdf[annoIDsHdf$distancetoFeature < 1001 & annoIDsHdf$distancetoFeature > -5001, ]
+
+# Create a new data frame with selected columns
+annoIDsNdf_up5000down1000HOMER <- annoIDsNdf_up5000down1000[, c("seqnames", "start", "end", "peak", "pValue", "feature_strand")]
+# Remove column names & write as csv
+names(annoIDsNdf_up5000down1000HOMER) <- NULL
+write.csv(annoIDsNdf_up5000down1000HOMER, file = "annoIDsNdf_up5000down1000HOMER.csv", row.names = FALSE)
+#everyone else
+annoIDs8df_up5000down1000HOMER <- annoIDs8df_up5000down1000[, c("seqnames", "start", "end", "peak", "pValue", "feature_strand")]
+annoIDs5df_up5000down1000HOMER <- annoIDs5df_up5000down1000[, c("seqnames", "start", "end", "peak", "pValue", "feature_strand")]
+annoIDsHdf_up5000down1000HOMER <- annoIDsHdf_up5000down1000[, c("seqnames", "start", "end", "peak", "pValue", "feature_strand")]
+names(annoIDs8df_up5000down1000HOMER) <- NULL
+names(annoIDs5df_up5000down1000HOMER) <- NULL
+names(annoIDsHdf_up5000down1000HOMER) <- NULL
+write.csv(annoIDs8df_up5000down1000HOMER, file = "annoIDs8df_up5000down1000HOMER.csv", row.names = FALSE)
+write.csv(annoIDs5df_up5000down1000HOMER, file = "annoIDs5df_up5000down1000HOMER.csv", row.names = FALSE)
+write.csv(annoIDsHdf_up5000down1000HOMER, file = "annoIDsHdf_up5000down1000HOMER.csv", row.names = FALSE)
+#check if this is a tab delimited file 
+# Check the first few lines of the file to identify the delimiter
+head -n 5 annoIDs8df_up5000down1000HOMER.bed | grep -P '\t' > /dev/null
+
+if [ $? -eq 0 ]; then
+    echo "File is tab-delimited"
+else
+    echo "File is not tab-delimited"
+fi
+
+#OK above made a COMMA SEPERATED FILE (csv duh) 
+#when you actually want a tab delimited 
+#So I replaced commas with tabs in the file in bash 
+sed 's/,/\t/g' annoIDs8df_up5000down1000HOMER.csv > annoIDs8df_up5000down1000HOMER.bed
+#your HOMER files that you made have quotes in them! Get rid of them 
+sed 's/"//g' annoIDs5df_up5000down1000HOMER.bed > annoIDs5df_up5000down1000HOMERNEW.bed
+
